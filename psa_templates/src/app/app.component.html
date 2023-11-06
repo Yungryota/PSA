@@ -3,11 +3,12 @@
 
 
 
-<a class="container ">
-  <img src="../assets/img/Logo_Medicina_Salud_Minimalista_Corporativo_Azul_.png">
-</a>
-<div class="container">
-  <button (click)="Listar()"class="btn btn-info">Listar</button>
-</div>
+<body>
+  <div class="container main">
+    <img class="icon"src="../assets/img/Logo_Medicina_Salud_Minimalista_Corporativo_Azul_.png">
+    <button (click)="Listar()"class="btn btn-info">Listar</button>
+  </div>
+  
+  <router-outlet></router-outlet>
+</body>
 
-<router-outlet></router-outlet>

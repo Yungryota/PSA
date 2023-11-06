@@ -1,0 +1,21 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+body{
+    background-color: #3c79ff;
+}
+
+.icon{
+    border-radius: 300px;
+}
