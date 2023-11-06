@@ -14,7 +14,7 @@
 	<name>psa</name>
 	<description>Demo de servicio web PSA</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
                 <maven.compiler.source>3.0</maven.compiler.source>
                 <maven.compiler.target>3.0</maven.compiler.target>
 	</properties>
