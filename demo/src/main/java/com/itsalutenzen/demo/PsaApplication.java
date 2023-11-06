@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
    
 import com.oracle.nosql.spring.data.repository.config.EnableNosqlRepositories;
 import jakarta.servlet.http.HttpServletRequest;
+import java.io.File;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -35,6 +36,9 @@ public class PsaApplication {
 
            NoSQLHandle handle = appconfig.connectToDatabase();
         // Ejecuta las consultas en la base de datos
+
+           
+           System.out.println(new File("").getAbsolutePath());
 
 
        }
