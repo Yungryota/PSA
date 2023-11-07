@@ -1,15 +1,18 @@
 .main{
     display: flex;
-    flex-direction: column;
-    width: 500px;
-    justify-content: center;
+    flex-direction: row;
+    width: 300px;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
 }
 
 .btn{
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 100px;
+    width: 120px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 body{
@@ -18,4 +21,5 @@ body{
 
 .icon{
     border-radius: 300px;
+    width: 300px;
 }
