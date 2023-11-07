@@ -47,6 +47,17 @@ public class PsaApplication {
             sp.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0); // block until bytes can be written
                 if (sp.openPort()) {
                 System.out.println("Port is open :)");
+                            try {
+                OutputStream os = sp.getOutputStream();
+                // Envía un comando para encender el LED (por ejemplo, '1')
+                os.write('1');
+                os.flush();
+                System.out.println("LED encendido.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                sp.closePort(); // Cierra el puerto después de enviar el comando
+            }
               } else {
                 System.out.println("Failed to open port :(");
                 return;
