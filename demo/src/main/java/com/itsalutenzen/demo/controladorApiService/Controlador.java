@@ -33,10 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controlador {
 
-
-
-
-    @GetMapping("/hello")
+    @GetMapping("/hello") /* http://localhost:8080/psa/hello test por eliminar funciones futuras */
     public ArrayList<Paciente> getPatients() {
         String tableName = "paciente";
         AppConfig appConfig = new AppConfig();
@@ -45,5 +42,6 @@ public class Controlador {
         
         return viewTable.executeQueries(handle, tableName);
     }
+    
 
 }
