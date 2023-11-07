@@ -15,6 +15,7 @@ import com.fazecast.jSerialComm.SerialPort;
 import com.oracle.nosql.spring.data.repository.config.EnableNosqlRepositories;
 import jakarta.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.OutputStream;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
