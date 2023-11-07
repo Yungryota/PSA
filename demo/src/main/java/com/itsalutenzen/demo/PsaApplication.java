@@ -10,7 +10,8 @@ import oracle.nosql.driver.NoSQLHandle;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
    import org.springframework.boot.autoconfigure.SpringBootApplication;
    import org.springframework.context.ConfigurableApplicationContext;
-   
+   import java.io.IOException;
+import com.fazecast.jSerialComm.SerialPort;
 import com.oracle.nosql.spring.data.repository.config.EnableNosqlRepositories;
 import jakarta.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -39,8 +40,17 @@ public class PsaApplication {
 
            
            System.out.println(new File("").getAbsolutePath());
+           
 
-
+            SerialPort sp = SerialPort.getCommPort("COM1"); // device name TODO: must be changed
+            sp.setComPortParameters(9600, 8, 1, 0); // default connection settings for Arduino
+            sp.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0); // block until bytes can be written
+                if (sp.openPort()) {
+                System.out.println("Port is open :)");
+              } else {
+                System.out.println("Failed to open port :(");
+                return;
+              }
        }
 
 
