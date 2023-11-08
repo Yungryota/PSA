@@ -5,6 +5,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    background-color: #3c79ff;
+
 }
 
 .btn{
@@ -13,10 +15,6 @@
     width: 120px;
     margin-left: 5px;
     margin-right: 5px;
-}
-
-body{
-    background-color: #3c79ff;
 }
 
 .icon{
