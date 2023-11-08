@@ -10,6 +10,8 @@ import { LoginPsaComponent } from './login-psa/login-psa.component';
 import { CategorizacionPacienteComponent } from './categorizacion-paciente/categorizacion-paciente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]

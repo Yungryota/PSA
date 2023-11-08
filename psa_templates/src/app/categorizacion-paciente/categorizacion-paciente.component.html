@@ -1,1 +1,23 @@
-<p>categorizacion-paciente works!</p>
+<div class="main-content">
+    <div class="sidebar">
+        <div class="cont-logo">
+          <img src="assets/img/psaLogo.png" alt="">
+        </div>
+      </div>
+    <div class="preguntas-container"><!--Placeholder-->
+        <h1>Seleccione los sintomas que presenta</h1>
+        <mat-radio-group id="radio" [(ngModel)]="opcionSeleccionada">
+            <mat-radio-button [color]="task.color" value="opcion1">
+                <h4 class="text">placeholder</h4>
+            </mat-radio-button>
+            <mat-radio-button [color]="task.color" value="opcion2">
+                <h4 class="text">placeholder</h4>
+            </mat-radio-button>
+            <mat-radio-button [color]="task.color" value="opcion3">
+                asd
+                <h4 class="text">placeholder</h4>
+            </mat-radio-button>
+        </mat-radio-group>
+
+    </div>
+</div>
