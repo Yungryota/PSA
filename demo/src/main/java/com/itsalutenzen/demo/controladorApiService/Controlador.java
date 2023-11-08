@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.itsalutenzen.demo;
+package com.itsalutenzen.demo.controladorApiService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.itsalutenzen.demo.clases.Paciente;
+import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
+import com.itsalutenzen.demo.oraclecloud.viewTable;
 
 /**
  *
@@ -36,7 +38,7 @@ public class Controlador {
     @GetMapping("/hello") /* http://localhost:8080/psa/hello test por eliminar funciones futuras */
     public ArrayList<Paciente> getPatients() {
         String tableName = "paciente";
-        AppConfig appConfig = new AppConfig();
+        AppConfigSql appConfig = new AppConfigSql();
         NoSQLHandle handle = appConfig.connectToDatabase();
         viewTable viewTable = new viewTable();
         

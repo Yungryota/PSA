@@ -2,26 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.itsalutenzen.demo;
+package com.itsalutenzen.demo.oraclecloud;
 
 
-    import oracle.nosql.driver.NoSQLHandleConfig;
-    import oracle.nosql.driver.Region;
-    import oracle.nosql.driver.iam.SignatureProvider;
-    import com.oracle.nosql.spring.data.config.AbstractNosqlConfiguration;
-    import com.oracle.nosql.spring.data.config.NosqlDbConfig;
-    import java.io.File;
-    import java.io.IOException;
-    import oracle.nosql.driver.NoSQLHandle;
-    import oracle.nosql.driver.NoSQLHandleFactory;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation.Configuration;
+import oracle.nosql.driver.NoSQLHandleConfig;
+import oracle.nosql.driver.Region;
+import oracle.nosql.driver.iam.SignatureProvider;
+import com.oracle.nosql.spring.data.config.AbstractNosqlConfiguration;
+import com.oracle.nosql.spring.data.config.NosqlDbConfig;
+import java.io.File;
+import java.io.IOException;
+import oracle.nosql.driver.NoSQLHandle;
+import oracle.nosql.driver.NoSQLHandleFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
     
 
     
     @Configuration
 
-    public class AppConfig extends AbstractNosqlConfiguration {  
+    public class AppConfigSql extends AbstractNosqlConfiguration {  
     
     private String endpoint = "sa-santiago-1";
     private String service = "cloud";

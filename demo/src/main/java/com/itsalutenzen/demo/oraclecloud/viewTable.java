@@ -1,4 +1,4 @@
-package com.itsalutenzen.demo;
+package com.itsalutenzen.demo.oraclecloud;
 
 import oracle.nosql.driver.NoSQLHandle;
 import oracle.nosql.driver.ops.GetRequest;
@@ -12,6 +12,7 @@ import oracle.nosql.driver.ops.QueryIterableResult;
 import java.util.ArrayList;
 import oracle.nosql.driver.values.MapValue;
 import oracle.nosql.driver.values.FieldValue;
+import com.itsalutenzen.demo.clases.Paciente;
 
 public class viewTable {
 
