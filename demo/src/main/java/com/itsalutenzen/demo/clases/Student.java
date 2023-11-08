@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.itsalutenzen.demo;
+package com.itsalutenzen.demo.clases;
 
 import com.oracle.nosql.spring.data.core.mapping.NosqlId;
 import com.oracle.nosql.spring.data.core.mapping.NosqlTable;
+
 
 
 @NosqlTable(autoCreateTable = true, tableName = "Student")

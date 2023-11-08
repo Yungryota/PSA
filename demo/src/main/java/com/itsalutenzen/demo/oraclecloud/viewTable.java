@@ -1,17 +1,19 @@
-package com.itsalutenzen.demo;
-
-import oracle.nosql.driver.NoSQLHandle;
+package com.itsalutenzen.demo.oraclecloud;
+/*imports en desuso
 import oracle.nosql.driver.ops.GetRequest;
 import oracle.nosql.driver.ops.GetResult;
 import oracle.nosql.driver.values.MapValue;
 import oracle.nosql.driver.ops.GetRequest;
 import oracle.nosql.driver.ops.GetResult;
+import oracle.nosql.driver.values.FieldValue;
+*/
+import oracle.nosql.driver.NoSQLHandle;
 import oracle.nosql.driver.ops.QueryRequest;
 import oracle.nosql.driver.ops.QueryResult;
 import oracle.nosql.driver.ops.QueryIterableResult;
 import java.util.ArrayList;
 import oracle.nosql.driver.values.MapValue;
-import oracle.nosql.driver.values.FieldValue;
+import com.itsalutenzen.demo.clases.Paciente;
 
 public class viewTable {
 

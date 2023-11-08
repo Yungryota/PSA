@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListarComponent } from './Paciente/listar/listar.component';
 import { ServiceService } from '../app/Service/service.service';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { LoginPsaComponent } from './login-psa/login-psa.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListarComponent
+    ListarComponent,
+    LoginPsaComponent
   ],
   imports: [
     BrowserModule,
