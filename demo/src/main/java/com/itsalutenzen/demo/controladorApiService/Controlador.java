@@ -2,21 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.itsalutenzen.demo;
-
+package com.itsalutenzen.demo.controladorApiService;
+/* imports en desuso
 import jakarta.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import oracle.nosql.driver.NoSQLHandle;
 import oracle.nosql.driver.ops.QueryRequest;
 import oracle.nosql.driver.ops.QueryResult;
 import oracle.nosql.driver.values.MapValue;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+*/
+import java.util.ArrayList;
+import oracle.nosql.driver.NoSQLHandle;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.itsalutenzen.demo.clases.Paciente;
+import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
+import com.itsalutenzen.demo.oraclecloud.viewTable;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -33,17 +37,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controlador {
 
-
-
-
-    @GetMapping("/hello")
+    @GetMapping("/hello") /* http://localhost:8080/psa/hello test por eliminar funciones futuras */
     public ArrayList<Paciente> getPatients() {
         String tableName = "paciente";
-        AppConfig appConfig = new AppConfig();
+        AppConfigSql appConfig = new AppConfigSql();
         NoSQLHandle handle = appConfig.connectToDatabase();
         viewTable viewTable = new viewTable();
         
         return viewTable.executeQueries(handle, tableName);
     }
+    @GetMapping("/{rut}")
+    public Paciente getAuth(@PathVariable String rut){
+        
+        viewTable auth = new viewTable();
+        AppConfigSql appConfig = new AppConfigSql();
+        NoSQLHandle handle = appConfig.connectToDatabase();
+        return auth.buscarPorRut(handle, rut);
+    }
+    
 
 }

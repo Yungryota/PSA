@@ -1,17 +1,19 @@
-package com.itsalutenzen.demo;
-
-import oracle.nosql.driver.NoSQLHandle;
+package com.itsalutenzen.demo.oraclecloud;
+/*imports en desuso
 import oracle.nosql.driver.ops.GetRequest;
 import oracle.nosql.driver.ops.GetResult;
 import oracle.nosql.driver.values.MapValue;
 import oracle.nosql.driver.ops.GetRequest;
 import oracle.nosql.driver.ops.GetResult;
+import oracle.nosql.driver.values.FieldValue;
+*/
+import oracle.nosql.driver.NoSQLHandle;
 import oracle.nosql.driver.ops.QueryRequest;
 import oracle.nosql.driver.ops.QueryResult;
 import oracle.nosql.driver.ops.QueryIterableResult;
 import java.util.ArrayList;
 import oracle.nosql.driver.values.MapValue;
-import oracle.nosql.driver.values.FieldValue;
+import com.itsalutenzen.demo.clases.Paciente;
 
 public class viewTable {
 
@@ -65,5 +67,32 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
                 }
             }       
         return null;
+    }
+    
+      public Paciente buscarPorRut(NoSQLHandle handle, String rut) { //3: solicita datos 
+        QueryIterableResult results = null;
+
+        try {
+            QueryRequest queryRequest = new QueryRequest()
+                .setStatement("select * from paciente where rut = '" + rut + "'");
+            results = handle.queryIterable(queryRequest);
+
+            for (MapValue res : results) {
+                String nombre = res.getString("nombre");
+                int edad = res.getInt("edad");
+                int numDoc = res.getInt("num_doc");
+
+                Paciente paciente = new Paciente(rut, nombre, numDoc, edad);
+                return paciente;
+            }
+        } catch (Exception e) { //4: figura en el sistema 
+            e.printStackTrace();
+        } finally {
+            if (results != null) { //5: no figura en el sistema
+                results.close();
+            }
+        }
+
+        return null; // Si no se encuentra ningún paciente con ese RUT
     }
 }

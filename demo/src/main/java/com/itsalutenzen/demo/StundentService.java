@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package com.itsalutenzen.demo;
+import com.itsalutenzen.demo.clases.Student;
 
 import java.util.List;
 

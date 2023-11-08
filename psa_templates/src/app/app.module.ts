@@ -5,18 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListarComponent } from './Paciente/listar/listar.component';
 import { ServiceService } from '../app/Service/service.service';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { LoginPsaComponent } from './login-psa/login-psa.component';
+import { CategorizacionPacienteComponent } from './categorizacion-paciente/categorizacion-paciente.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListarComponent
+    ListarComponent,
+    LoginPsaComponent,
+    CategorizacionPacienteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
