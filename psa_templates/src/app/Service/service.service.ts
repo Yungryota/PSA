@@ -26,7 +26,8 @@ export class ServiceService {
   }
 
   buscarPacientePorRut(rut: string): Observable<Paciente> {
-    return this.http.get<Paciente>(`${this.apiUrl}/api/pacientes/${rut}`);
+    return this.http.get<Paciente>(`${this.apiUrl}/psa/${rut}`);
+    console.log(Paciente)
   }
   
 }

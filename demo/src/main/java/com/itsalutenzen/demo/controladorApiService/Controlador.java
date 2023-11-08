@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.itsalutenzen.demo.clases.Paciente;
 import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
 import com.itsalutenzen.demo.oraclecloud.viewTable;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -44,6 +45,14 @@ public class Controlador {
         viewTable viewTable = new viewTable();
         
         return viewTable.executeQueries(handle, tableName);
+    }
+    @GetMapping("/{rut}")
+    public Paciente getAuth(@PathVariable String rut){
+        
+        viewTable auth = new viewTable();
+        AppConfigSql appConfig = new AppConfigSql();
+        NoSQLHandle handle = appConfig.connectToDatabase();
+        return auth.buscarPorRut(handle, rut);
     }
     
 
