@@ -69,7 +69,7 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
         return null;
     }
     
-      public Paciente buscarPorRut(NoSQLHandle handle, String rut) {
+      public Paciente buscarPorRut(NoSQLHandle handle, String rut) { //3: solicita datos 
         QueryIterableResult results = null;
 
         try {
@@ -85,10 +85,10 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
                 Paciente paciente = new Paciente(rut, nombre, numDoc, edad);
                 return paciente;
             }
-        } catch (Exception e) {
+        } catch (Exception e) { //4: figura en el sistema 
             e.printStackTrace();
         } finally {
-            if (results != null) {
+            if (results != null) { //5: no figura en el sistema
                 results.close();
             }
         }
