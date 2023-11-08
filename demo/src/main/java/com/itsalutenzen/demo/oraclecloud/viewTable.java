@@ -68,4 +68,31 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
             }       
         return null;
     }
+    
+      public Paciente buscarPorRut(NoSQLHandle handle, String rut) {
+        QueryIterableResult results = null;
+
+        try {
+            QueryRequest queryRequest = new QueryRequest()
+                .setStatement("select * from paciente where rut = '" + rut + "'");
+            results = handle.queryIterable(queryRequest);
+
+            for (MapValue res : results) {
+                String nombre = res.getString("nombre");
+                int edad = res.getInt("edad");
+                int numDoc = res.getInt("num_doc");
+
+                Paciente paciente = new Paciente(rut, nombre, numDoc, edad);
+                return paciente;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (results != null) {
+                results.close();
+            }
+        }
+
+        return null; // Si no se encuentra ningún paciente con ese RUT
+    }
 }

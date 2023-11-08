@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio de sesi[on - PSA</title>
+  <title>Inicio de sesión - PSA</title>
 </head>
 <body>
   <div class="contenedor">
@@ -15,16 +15,14 @@
     </div>
 
     <!-- main -->
-
     <div class="main-content">
       <div class="centered-content">
         <p>Ingrese su rut para iniciar</p>
-        <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input">
-        <button type="submit" class="enviar-btn">Enviar</button>
+        <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input" [(ngModel)]="rutABuscar">
+        <button type="button" class="enviar-btn" (click)="buscarPaciente()">Enviar</button>
+        <p *ngIf="mostrarMensaje">{{ mensaje }}</p>
       </div>
     </div>
   </div>
-
-
 </body>
 </html>
