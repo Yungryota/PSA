@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Paciente } from 'src/app/Model/Paciente';
 import { ServiceService } from 'src/app/Service/service.service';
 
@@ -14,7 +15,7 @@ export class LoginPsaComponent {
   mensaje: string = '';
   pacienteEncontrado: any; 
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: ServiceService, private router: Router) {}
 
   buscarPaciente() {
     this.service.buscarPacientePorRut(this.rutABuscar).subscribe(
@@ -35,5 +36,10 @@ export class LoginPsaComponent {
         console.error(error);
       }
     );
+
+
+  }
+  goView(){
+      this.router.navigate(["/listar"])
   }
 }

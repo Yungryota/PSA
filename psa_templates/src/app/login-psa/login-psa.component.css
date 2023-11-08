@@ -25,12 +25,35 @@ body{
     margin-top: 70%;
 }
 
+
 .main-content{
-    display: block;
+    display: flex;
+    justify-content: flex-start;
     text-align: center;
-    margin-left: 30%;
-    margin-top: 10%;
+    flex-wrap: wrap;
+    width: 100%;
     font-size: 40px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.admin-access{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 80px;
+    width: 100%;
+    background-color: #3C84FB;
+
+}
+.btn-admin-access{
+    background-color: #295bae;
+    width: 100px;
+    border-radius: 0
+
+}
+.centered-content{
+    margin-top: 10%;
+    width: 750px;
 }
 
 .rut-input {

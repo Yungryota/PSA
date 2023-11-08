@@ -16,6 +16,11 @@
 
     <!-- main -->
     <div class="main-content">
+      <div class="admin-access">
+        <button (click)="goView()"class="btn btn-admin-access">
+          <img src="../../assets/img/database.svg">
+        </button>
+      </div>
       <div class="centered-content">
         <p>Ingrese su rut para iniciar</p>
         <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input" [(ngModel)]="rutABuscar">
