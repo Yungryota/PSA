@@ -43,9 +43,7 @@ public class PsaApplication {
            System.out.println(new File("").getAbsolutePath());
            MicroControlador arduino = new MicroControlador();
            
-           arduino.abrirArduino();
-           
-		
+        
        }
        
 

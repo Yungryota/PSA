@@ -15,9 +15,8 @@ public class MicroControlador {
 
     public MicroControlador() {
         // Configura el puerto serie
-        sp = SerialPort.getCommPort("COM5"); // Nombre del dispositivo COM
+        sp = SerialPort.getCommPort("COM4"); // Nombre del dispositivo COM
         sp.setComPortParameters(9600, 8, 1, 0); // Configuración predeterminada para Arduino
-        sp.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0); // Bloquea hasta que se puedan escribir bytes
     }
 
     public void abrirArduino() {
@@ -35,8 +34,6 @@ public class MicroControlador {
             OutputStream outputStream = sp.getOutputStream();
             String mensaje = "1"; // Envía "1" para encender el LED (debes tener un código en Arduino para interpretar esto)
             outputStream.write(mensaje.getBytes());
-            outputStream.flush();
-            System.out.println("LED encendido");
         } catch (Exception e) {
             System.err.println("Error al enviar datos al puerto serie: " + e.getMessage());
         }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 */
+import com.itsalutenzen.demo.clases.MicroControlador;
 import java.util.ArrayList;
 import oracle.nosql.driver.NoSQLHandle;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -55,5 +56,13 @@ public class Controlador {
         return auth.buscarPorRut(handle, rut);
     }
     
+    @GetMapping("/arduino")
+    public String encenderArduino(){
+        MicroControlador arduino = new MicroControlador();
+        
+        arduino.abrirArduino();
+        arduino.cerrarArduino();
+        return "arduino encendido";
+    }
 
 }
