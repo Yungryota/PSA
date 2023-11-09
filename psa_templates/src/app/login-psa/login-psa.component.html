@@ -21,6 +21,9 @@
           <img src="../../assets/img/database.svg">
         </button>
       </div>
+      <div class="arduino">
+        <button type="button" class="enviar-btn" (click)="arduinoGo()">Enviar</button> <!--2: Pulsa ok-->
+      </div>
       <div class="centered-content">
         <p>Ingrese su rut para iniciar</p> <!--1: Llena campos-->
         <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input" [(ngModel)]="rutABuscar">

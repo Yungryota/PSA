@@ -40,10 +40,18 @@ export class LoginPsaComponent {
         this.mensaje = 'Hubo un error al buscar el paciente.';
         console.error(error);
       }
+      
     );
 
 
   }
+
+  arduinoGo() {
+    this.service.activarArduino().subscribe(
+    )
+}
+
+
   goView(){
       this.router.navigate(["/listar"])
   }

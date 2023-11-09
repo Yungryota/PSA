@@ -27,7 +27,12 @@ export class ServiceService {
 
   buscarPacientePorRut(rut: string): Observable<Paciente> {
     return this.http.get<Paciente>(`${this.apiUrl}/psa/${rut}`);
-    console.log(Paciente)
+    
   }
+
+  activarArduino() {
+    return this.http.get(`${this.apiUrl}/psa/arduino`);
+}
+
   
 }

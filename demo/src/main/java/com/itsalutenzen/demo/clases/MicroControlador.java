@@ -15,7 +15,7 @@ public class MicroControlador {
 
     public MicroControlador() {
         // Configura el puerto serie
-        sp = SerialPort.getCommPort("COM4"); // Nombre del dispositivo COM
+        sp = SerialPort.getCommPort("COM13"); // Nombre del dispositivo COM
         sp.setComPortParameters(9600, 8, 1, 0); // Configuración predeterminada para Arduino
     }
 
