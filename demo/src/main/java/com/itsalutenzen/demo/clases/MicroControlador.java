@@ -6,32 +6,44 @@ package com.itsalutenzen.demo.clases;
 import com.fazecast.jSerialComm.SerialPort;
 import java.io.OutputStream;
 
-
-
 /**
  *
  * @author LUKAS GAMER
  */
 public class MicroControlador {
-    
-    
-    public void abrirArduino(){
-                        SerialPort sp = SerialPort.getCommPort("COM5"); // device name TODO: must be changed
-		sp.setComPortParameters(9600, 8, 1, 0); // default connection settings for Arduino
-		sp.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0); // block until bytes can be written
-		
-		if (sp.openPort()) {
-			System.out.println("Port is open :)");
-		} else {
-			System.out.println("Failed to open port :(");
-			return;
-		}
+    private SerialPort sp;
 
+    public MicroControlador() {
+        // Configura el puerto serie
+        sp = SerialPort.getCommPort("COM5"); // Nombre del dispositivo COM
+        sp.setComPortParameters(9600, 8, 1, 0); // Configuración predeterminada para Arduino
+        sp.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0); // Bloquea hasta que se puedan escribir bytes
     }
-        public void enviarDatos(String datos) throws Exception {
-            SerialPort sp = SerialPort.getCommPort("COM5"); // device name TODO: must be changed
-        OutputStream outputStream = sp.getOutputStream();
-        outputStream.write(datos.getBytes());
+
+    public void abrirArduino() {
+        if (sp.openPort()) {
+            System.out.println("Puerto abierto :)");
+        } else {
+            System.out.println("Fallo al abrir el puerto :(");
+            return;
+        }
     }
-    
+
+    public void encenderLED() {
+        // Envía un mensaje para encender el LED
+        try {
+            OutputStream outputStream = sp.getOutputStream();
+            String mensaje = "1"; // Envía "1" para encender el LED (debes tener un código en Arduino para interpretar esto)
+            outputStream.write(mensaje.getBytes());
+            outputStream.flush();
+            System.out.println("LED encendido");
+        } catch (Exception e) {
+            System.err.println("Error al enviar datos al puerto serie: " + e.getMessage());
+        }
+    }
+
+    public void cerrarArduino() {
+        sp.closePort(); // Cierra el puerto serie cuando hayas terminado de usarlo
+        System.out.println("Puerto cerrado");
+    }
 }
