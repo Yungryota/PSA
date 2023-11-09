@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.CommandLineRunner;
 
 */
+import com.fazecast.jSerialComm.SerialPort;
 import oracle.nosql.driver.NoSQLHandle;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +18,7 @@ import java.io.File;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
-
+import java.io.IOException;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 
@@ -28,7 +29,7 @@ public class PsaApplication {
     
     
        
-       public static void main( String[] args )
+       public static void main( String[] args ) throws IOException, InterruptedException, Exception
        {
            ConfigurableApplicationContext
                ctx = SpringApplication.run(PsaApplication.class, args);
@@ -40,9 +41,13 @@ public class PsaApplication {
 
            
            System.out.println(new File("").getAbsolutePath());
-
-
+           MicroControlador arduino = new MicroControlador();
+           
+           arduino.abrirArduino();
+           
+		
        }
+       
 
 
 
