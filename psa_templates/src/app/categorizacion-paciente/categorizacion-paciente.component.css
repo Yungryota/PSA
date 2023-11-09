@@ -29,13 +29,20 @@ body{
     margin: 10%;
     margin-left: 10%;
     color: #000;
-
+    background-color: #f0eded;
+    padding: 25px;
+    border-radius: 5px;
+    display: block;
 }
 #radio{
     display: flex;
+    padding: 25px;
+    flex-direction: column;
 }
 
   
 .text{
     color: #000;
 }
+
+
