@@ -1,0 +1,41 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+}
+.sidebar {
+    width: 20%; 
+    background-color: #3C84FB;
+    height: 100vh; 
+}
+.cont-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%; 
+    padding: 20%;
+}
+
+.cont-logo img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 100%;
+    margin-top: 70%;
+}
+.main-content{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+}
+.preguntas-container{
+    margin: 10%;
+    margin-left: 10%;
+    color: #000;
+
+}
+#radio{
+    display: flex;
+}
+
+  
+.text{
+    color: #000;
+}

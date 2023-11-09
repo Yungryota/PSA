@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Paciente } from 'src/app/Model/Paciente';
 import { ServiceService } from '../../Service/service.service'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-listar',
@@ -12,13 +13,14 @@ export class ListarComponent {
 
   pacientes: Paciente[] = [];
 
-  constructor(private service:ServiceService, private router:Router ){
+  constructor(private service:ServiceService, private router:Router, private location: Location ){
 
   }
 
 
     
-  ngOnInit(){
+  async ngOnInit(){
+    console.log("Listado")
     this.service.getPacientes()
     .subscribe(data=>{
       this.pacientes=data;

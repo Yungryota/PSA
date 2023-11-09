@@ -24,4 +24,15 @@ export class ServiceService {
     // Si la ubicación es localhost:4200, realizar la solicitud GET
     return this.http.get<Paciente[]>(`${this.apiUrl}/psa/hello`);
   }
+
+  buscarPacientePorRut(rut: string): Observable<Paciente> {
+    return this.http.get<Paciente>(`${this.apiUrl}/psa/${rut}`);
+    
+  }
+
+  activarArduino() {
+    return this.http.get(`${this.apiUrl}/psa/arduino`);
+}
+
+  
 }
