@@ -8,18 +8,20 @@
         <h1>Seleccione los síntomas que presenta</h1>
         <div class="preguntas-container">
             <h4>Experimenta dolor?</h4>
-            <button (click)="responderPregunta('Experimenta dolor', true)" class="si-button">Sí</button>
-            <button (click)="responderPregunta('Experimenta dolor', false)" class="no-button">No</button>
+            <button (click)="responderPregunta1('Experimenta dolor', true)" class="si-button">Sí</button>
+            <button (click)="responderPregunta1('Experimenta dolor', false)" class="no-button">No</button>
             <h4>Presenta Signo de hemorragia?</h4>
-            <button (click)="responderPregunta('Signo de hemorragia', true)" class="si-button">Sí</button>
-            <button (click)="responderPregunta('Signo de hemorragia', false)" class="no-button">No</button>
-            <!-- Más preguntas con botones para Sí/No -->
+            <button (click)="responderPregunta2('Signo de hemorragia', true)" class="si-button">Sí</button>
+            <button (click)="responderPregunta2('Signo de hemorragia', false)" class="no-button">No</button>
+            <h4>Presenta cambios de consciencia?</h4>
+            <button (click)="responderPregunta3('Cambios en la conciencia', true)" class="si-button">Sí</button>
+            <button (click)="responderPregunta3('Cambios en la conciencia', false)" class="no-button">No</button>
             <h4>¿Cuánto tiempo ha experimentado los síntomas?</h4>
             <button (click)="cambiarTiempoSintomas(6)" class="tiempo-button">Menos de 6 horas</button>
             <button (click)="cambiarTiempoSintomas(12)" class="tiempo-button">Entre 6 y 12 horas</button>
             <button (click)="cambiarTiempoSintomas(13)" class="tiempo-button">Más de 12 horas</button>
         </div>
-        <button (click)="evaluarPrioridad()" class="evaluar-button">Evaluar Prioridad</button>
+        <button (click)="categorizacionPaciente()" class="evaluar-button" data-toggle="modal" data-target="#exampleModal">Evaluar Prioridad</button>
     </div>
 </div>
 <!-- Footer -->
@@ -45,3 +47,23 @@
   
   </footer>
   <!-- Footer -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
