@@ -1,23 +1,47 @@
 <div class="main-content">
     <div class="sidebar">
-        <div class="cont-logo">
-          <img src="assets/img/psaLogo.png" alt="">
-        </div>
+      <div class="cont-logo">
+        <img src="assets/img/psaLogo.png" alt="">
       </div>
-    <div class="preguntas-container"><!--Placeholder-->
-        <h1>Seleccione los sintomas que presenta</h1>
-        <mat-radio-group id="radio" [(ngModel)]="opcionSeleccionada">
-            <mat-radio-button [color]="task.color" value="opcion1">
-                <h4 class="text">placeholder</h4>
-            </mat-radio-button>
-            <mat-radio-button [color]="task.color" value="opcion2">
-                <h4 class="text">placeholder</h4>
-            </mat-radio-button>
-            <mat-radio-button [color]="task.color" value="opcion3">
-                asd
-                <h4 class="text">placeholder</h4>
-            </mat-radio-button>
-        </mat-radio-group>
-
+    </div>
+    <div class="cuestionario-container">
+        <h1>Seleccione los síntomas que presenta</h1>
+        <div class="preguntas-container">
+            <h4>Experimenta dolor?</h4>
+            <button (click)="responderPregunta('Experimenta dolor', true)" class="si-button">Sí</button>
+            <button (click)="responderPregunta('Experimenta dolor', false)" class="no-button">No</button>
+            <h4>Presenta Signo de hemorragia?</h4>
+            <button (click)="responderPregunta('Signo de hemorragia', true)" class="si-button">Sí</button>
+            <button (click)="responderPregunta('Signo de hemorragia', false)" class="no-button">No</button>
+            <!-- Más preguntas con botones para Sí/No -->
+            <h4>¿Cuánto tiempo ha experimentado los síntomas?</h4>
+            <button (click)="cambiarTiempoSintomas(6)" class="tiempo-button">Menos de 6 horas</button>
+            <button (click)="cambiarTiempoSintomas(12)" class="tiempo-button">Entre 6 y 12 horas</button>
+            <button (click)="cambiarTiempoSintomas(13)" class="tiempo-button">Más de 12 horas</button>
+        </div>
+        <button (click)="evaluarPrioridad()" class="evaluar-button">Evaluar Prioridad</button>
     </div>
 </div>
+<!-- Footer -->
+<footer class="bg-primary text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <h1>Artículo de Revista Impresa: W. Soler3, M. Gómez Muñoz3, E. Bragulat2, A. Álvarez1 (2010). </h1>
+        <h4>El triaje: herramienta fundamental en urgencias y emergencias
+            <p>[Triage: a key tool in emergency care]. Anales del Sistema Sanitario de Navarra, 33(supl. 1)</p>
+        </h4>
+
+
+        
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2023 Punto Salud ágil:
+      <a class="text-white" href="https://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1137-66272010000200008#:~:text=El%20t%C3%A9rmino%20triage%20o%20triaje,la%20atenci%C3%B3n%20urgente%20de%20pacientes.">Scielo</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
