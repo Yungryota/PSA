@@ -3,44 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.itsalutenzen.demo.clases;
-import com.fazecast.jSerialComm.SerialPort;
-import java.io.OutputStream;
+import jssc.SerialPort;
+import jssc.SerialPortList;
 
-/**
- *
- * @author LUKAS GAMER
- */
 public class MicroControlador {
-    private SerialPort sp;
-
-    public MicroControlador() {
-        // Configura el puerto serie
-        sp = SerialPort.getCommPort("COM13"); // Nombre del dispositivo COM
-        sp.setComPortParameters(9600, 8, 1, 0); // Configuración predeterminada para Arduino
-    }
-
-    public void abrirArduino() {
-        if (sp.openPort()) {
-            System.out.println("Puerto abierto :)");
-        } else {
-            System.out.println("Fallo al abrir el puerto :(");
-            return;
+    public void verPuertos(){
+        String puertos[]= SerialPortList.getPortNames();
+        for(String n : puertos){
+                System.out.println(n);
         }
-    }
-
-    public void encenderLED() {
-        // Envía un mensaje para encender el LED
-        try {
-            OutputStream outputStream = sp.getOutputStream();
-            String mensaje = "1"; // Envía "1" para encender el LED (debes tener un código en Arduino para interpretar esto)
-            outputStream.write(mensaje.getBytes());
-        } catch (Exception e) {
-            System.err.println("Error al enviar datos al puerto serie: " + e.getMessage());
+        
+        SerialPort sp = new SerialPort("COM5");
+        try{
+            sp.openPort();
+            sp.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+            System.out.println("Conectado al puerto :)");
+            Thread.sleep(1500);
+                sp.writeString("1");
+                System.out.println("enviando un 1");
+        }catch(Exception e){
+            e.printStackTrace();
         }
-    }
-
-    public void cerrarArduino() {
-        sp.closePort(); // Cierra el puerto serie cuando hayas terminado de usarlo
-        System.out.println("Puerto cerrado");
     }
 }

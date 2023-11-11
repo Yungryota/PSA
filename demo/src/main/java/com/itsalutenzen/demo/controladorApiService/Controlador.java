@@ -61,7 +61,7 @@ public class Controlador {
         MicroControlador arduino = new MicroControlador();
         
         arduino.abrirArduino();
-        arduino.cerrarArduino();
+
         return "arduino encendido";
     }
 
