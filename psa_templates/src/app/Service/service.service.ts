@@ -30,8 +30,11 @@ export class ServiceService {
     
   }
 
-  activarArduino() {
-    return this.http.get(`${this.apiUrl}/psa/arduino`);
+  encenderLed() {
+    return this.http.get(`${this.apiUrl}/psa/arduino/encender`);
+}
+apagarLed() {
+  return this.http.get(`${this.apiUrl}/psa/arduino/apagar`);
 }
 
   

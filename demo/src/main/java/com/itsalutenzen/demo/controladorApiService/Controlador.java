@@ -56,13 +56,21 @@ public class Controlador {
         return auth.buscarPorRut(handle, rut);
     }
     
-    @GetMapping("/arduino")
-    public String encenderArduino(){
+    @GetMapping("arduino/encender")
+    public String encenderLed(){
         MicroControlador arduino = new MicroControlador();
         
-        arduino.abrirArduino();
+        arduino.encenderLED();
 
-        return "arduino encendido";
+        return "LED ENCENDIDO";
+    }
+        @GetMapping("arduino/apagar")
+    public String apagarLed(){
+        MicroControlador arduino = new MicroControlador();
+        
+        arduino.apagarLED();
+
+        return "LED APAGADO";
     }
 
 }

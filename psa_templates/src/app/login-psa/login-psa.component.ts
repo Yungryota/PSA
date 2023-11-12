@@ -46,10 +46,14 @@ export class LoginPsaComponent {
 
   }
 
-  arduinoGo() {
-    this.service.activarArduino().subscribe(
+  encenderLed() {
+    this.service.encenderLed().subscribe(
     )
-}
+  }
+  apagarLed() {
+    this.service.apagarLed().subscribe(
+    )
+  }
 
 
   goView(){
