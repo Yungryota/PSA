@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.itsalutenzen.demo.clases.Paciente;
 import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
 import com.itsalutenzen.demo.oraclecloud.viewTable;
+import jssc.SerialPort;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
@@ -60,17 +61,17 @@ public class Controlador {
     public String encenderLed(){
         MicroControlador arduino = new MicroControlador();
         
-        arduino.encenderLED();
+        
 
-        return "LED ENCENDIDO";
+        return arduino.verPIR();
     }
         @GetMapping("arduino/apagar")
     public String apagarLed(){
-        MicroControlador arduino = new MicroControlador();
-        
-        arduino.apagarLED();
-
-        return "LED APAGADO";
+    MicroControlador microControlador = new MicroControlador();
+    SerialPort puertoSerial = new SerialPort("COM5"); // Reemplaza con tu puerto
+    // ... (realiza operaciones con el puerto)
+    microControlador.cerrarPuerto(puertoSerial);
+        return "APAGADO";
     }
 
 }
