@@ -65,6 +65,16 @@ public class Controlador {
         return "arduino encendido";
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/psa/enviarCategoriaPaciente") // hacer el post mapping en 
     public void recibirCategoriaPaciente(@RequestBody String categoriaPaciente) {
