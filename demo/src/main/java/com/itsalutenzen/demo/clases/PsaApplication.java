@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.CommandLineRunner;
 
 */
-import com.fazecast.jSerialComm.SerialPort;
+
 import oracle.nosql.driver.NoSQLHandle;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
