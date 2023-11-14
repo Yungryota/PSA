@@ -27,10 +27,8 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 .cuestionario-container{
-    margin: 10%;
     margin-left: 10%;
     color: #000;
-
 }
 #radio{
     display: flex;
@@ -43,6 +41,7 @@ body{
 .preguntas-container{
     background-color: #f3f2f2;
     border-radius: 10px;
+    padding: 20px;
 }
 .si-button {
     background-color: green;
@@ -51,6 +50,7 @@ body{
     border: none;
     cursor: pointer;
     margin-right: 5px;
+    border-radius: 5px;
 }
 
 .no-button {
@@ -60,6 +60,7 @@ body{
     border: none;
     cursor: pointer;
     margin-right: 5px;
+    border-radius: 5px;
 }
 
 .tiempo-button {
@@ -69,6 +70,7 @@ body{
     border: none;
     cursor: pointer;
     margin-right: 5px;
+    border-radius: 5px;
 }
 
 .evaluar-button {
@@ -78,4 +80,9 @@ body{
     border: none;
     cursor: pointer;
     margin-top: 15px;
+    border-radius: 5px;
+}
+
+h4{
+    margin-top: 10px;
 }
