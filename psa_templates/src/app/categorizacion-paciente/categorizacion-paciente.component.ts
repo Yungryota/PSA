@@ -19,7 +19,7 @@ export class CategorizacionPacienteComponent {
   };
 
   nivelPrioridad: number = 5; 
-  categoriaPaciente: string = '';
+  categoriaPaciente: string = ' ';
 
   constructor(private router: Router) {}
   
@@ -113,35 +113,34 @@ export class CategorizacionPacienteComponent {
   categorizacionPaciente() { // Categoriza al paciente segun su nivel de prioridad
     console.log(`PRIORIDAD PACIENTE: ${this.nivelPrioridad}`);
 
-    if (this.nivelPrioridad = 1){
+    if (this.nivelPrioridad == 1){
       this.categoriaPaciente = 'C1';
-      //const nivelDolor = prompt("UD debe ir a meson. Su nivel es:", this.categoriaPaciente);
-    } else if (this.nivelPrioridad = 2) {
-      this.categoriaPaciente = 'C2';
-      //const nivelDolor = prompt("UD debe ir a meson. Su nivel es:", this.categoriaPaciente);
-    } else if (this.nivelPrioridad = 3) {
-      this.categoriaPaciente = 'C3';
-      //const nivelDolor = prompt("UD debe ir a meson. Su nivel es:", this.categoriaPaciente);
-    } else if (this.nivelPrioridad = 4) {
-      this.categoriaPaciente = 'C4';
-      //const nivelDolor = prompt("Continue con la evaluacion. Su nivel es:", this.categoriaPaciente);
-    } else if (this.nivelPrioridad = 5) {
-      this.categoriaPaciente = 'C5';
-      //const nivelDolor = prompt("Continue con la evaluacion. Su nivel es:", this.categoriaPaciente);
-    }
-    
-    prompt("Continue con la evaluacion. Su nivel es:", this.categoriaPaciente);
-
-    if (this.categoriaPaciente == 'C5'){
-      this.router.navigate(["/listar"])
-    } else if (this.categoriaPaciente == 'C4') { 
-      this.router.navigate(["/listar"])
-    } else { 
       this.router.navigate(["/login-psa"])
+     console.log('categoria: ', this.categoriaPaciente)
+     prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
+    } else if (this.nivelPrioridad == 2) {
+      this.categoriaPaciente = 'C2';
+      this.router.navigate(["/login-psa"])
+     console.log('categoria: ', this.categoriaPaciente)
+     prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
+    } else if (this.nivelPrioridad == 3) {
+      this.categoriaPaciente = 'C3';
+      this.router.navigate(["/login-psa"])
+     console.log('categoria: ', this.categoriaPaciente)
+     prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
+    } else if (this.nivelPrioridad == 4) {
+      this.categoriaPaciente = 'C4';
+      this.router.navigate(["/listar"])
+     console.log('categoria: ', this.categoriaPaciente)
+     prompt("Usted ha sido categorizado como C4 y será refirigido para continuar con su evaluación");
+    } else if (this.nivelPrioridad == 5) {
+      this.categoriaPaciente = 'C5';
+      this.router.navigate(["/listar"])
+      console.log('categoria: ', this.categoriaPaciente)
+      prompt("Usted ha sido categorizado como C5 y será refirigido para continuar con su evaluación");
+    } else {
+      prompt("Conteste el cuestionario para continuar");
     }
-
-    console.log(this.categoriaPaciente)
-    //return this.categoriaPaciente
   }
 
 
