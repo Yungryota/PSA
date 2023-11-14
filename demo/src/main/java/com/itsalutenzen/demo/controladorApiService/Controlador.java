@@ -8,8 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import oracle.nosql.driver.ops.QueryRequest;
 import oracle.nosql.driver.ops.QueryResult;
 import oracle.nosql.driver.values.MapValue;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 */
 import com.itsalutenzen.demo.clases.MicroControlador;
@@ -22,6 +20,8 @@ import com.itsalutenzen.demo.clases.Paciente;
 import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
 import com.itsalutenzen.demo.oraclecloud.viewTable;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -63,6 +63,12 @@ public class Controlador {
         arduino.abrirArduino();
         arduino.cerrarArduino();
         return "arduino encendido";
+    }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/psa/enviarCategoriaPaciente") // hacer el post mapping en 
+    public void recibirCategoriaPaciente(@RequestBody String categoriaPaciente) {
+        System.out.println("Categoría del paciente recibida: " + categoriaPaciente);
     }
 
 }

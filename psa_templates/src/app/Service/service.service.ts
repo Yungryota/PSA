@@ -32,7 +32,13 @@ export class ServiceService {
 
   activarArduino() {
     return this.http.get(`${this.apiUrl}/psa/arduino`);
-}
+  }
+
+  enviarCategoriaPaciente(categoriaPaciente: string): Observable<any> { // POST para enviar
+    const data = { categoriaPaciente }; 
+    return this.http.post<any>(`${this.apiUrl}/psa/enviarCategoriaPaciente`, data);
+    console.log('POST enviado')
+  }
 
   
 }

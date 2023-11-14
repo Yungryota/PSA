@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceService } from 'src/app/Service/service.service';
+
 
 
 @Component({
@@ -21,7 +23,7 @@ export class CategorizacionPacienteComponent {
   nivelPrioridad: number = 5; 
   categoriaPaciente: string = ' ';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: ServiceService) {}
   
 
   evaluaDolorPaciente() {
@@ -141,7 +143,9 @@ export class CategorizacionPacienteComponent {
     } else {
       prompt("Conteste el cuestionario para continuar");
     }
-  }
 
+    this.service.enviarCategoriaPaciente(this.categoriaPaciente).subscribe() // solicitud post
+
+  }
 
 }
