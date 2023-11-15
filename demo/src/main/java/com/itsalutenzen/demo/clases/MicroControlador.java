@@ -9,8 +9,12 @@ import jssc.SerialPortList;
 import jssc.SerialPortEventListener;
 import jssc.SerialPortEvent;
 
+
+// Relacion de dependencia con clase Consulta --> logica similar a una variable dependiente e independiente
 public class MicroControlador {
-    private String ultimoDatoPIR;
+    private String ultimoDatoPIR; // IMPORTANTE: DATOS Y LOGICA DEBEN ACTUZALIZARSE CUANDO SE OBTENGA EL SENSOR DE TEMPERATURA
+    private Consulta consulta; //Relacion de dependencia entre la clase consulta y microcontrolador
+    
     public void verPuertos() {
         String puertos[] = SerialPortList.getPortNames();
         String puertoSeleccionado = null;
