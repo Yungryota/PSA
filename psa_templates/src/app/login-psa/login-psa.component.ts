@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Paciente } from 'src/app/Model/Paciente';
+import { Usuario } from 'src/app/Model/Usuario';
 import { ServiceService } from 'src/app/Service/service.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -14,30 +14,30 @@ export class LoginPsaComponent {
   rutABuscar: string = '';
   mostrarMensaje: boolean = false;
   mensaje: string = '';
-  pacienteEncontrado: any; 
+  UsuarioEncontrado: any; 
   isLoading: boolean = false;
 
   constructor(private service: ServiceService, private router: Router) {}
 
-  buscarPaciente() {
-    this.service.buscarPacientePorRut(this.rutABuscar).subscribe(
-      (paciente) => {
-        if (paciente) {
+  buscarUsuario() {
+    this.service.buscarUsuarioPorRut(this.rutABuscar).subscribe(
+      (Usuario) => {
+        if (Usuario) {
           this.isLoading = false; //pantalla carga
-          this.pacienteEncontrado = paciente;
+          this.UsuarioEncontrado = Usuario;
           this.mostrarMensaje = true;
-          this.mensaje = 'El paciente con RUT ' + this.rutABuscar + ' ha sido encontrado.';
+          this.mensaje = 'El Usuario con RUT ' + this.rutABuscar + ' ha sido encontrado.';
           console.log(this.mensaje)
           this.router.navigate(['/categorizacion-paciente']);//redirige a vita categoria
         } else {
-          this.pacienteEncontrado = null;
+          this.UsuarioEncontrado = null;
           this.mostrarMensaje = true;
-          this.mensaje = 'El paciente con RUT ' + this.rutABuscar + ' no ha sido encontrado.'; //mensaje error
+          this.mensaje = 'El Usuario con RUT ' + this.rutABuscar + ' no ha sido encontrado.'; //mensaje error
         }
       },
       (error) => {
         this.mostrarMensaje = true;
-        this.mensaje = 'Hubo un error al buscar el paciente.';
+        this.mensaje = 'Hubo un error al buscar el Usuario.';
         console.error(error);
       }
       

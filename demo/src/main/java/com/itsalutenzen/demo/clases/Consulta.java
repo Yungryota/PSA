@@ -14,7 +14,7 @@ public class Consulta { //Actulizar en diagrama de clases
     private String estadoConsulta; 
     //public String pregunta; quitar del diagrma de clases
     public String categoriaPaciente;
-    private Paciente paciente; // Representado en el diagrama de clases como agregacion 
+    private Usuario paciente; // Representado en el diagrama de clases como agregacion 
     public String ResultadoConsulta; // Representar en diagrama de clases
     public String diagnosticoPaciente;
 

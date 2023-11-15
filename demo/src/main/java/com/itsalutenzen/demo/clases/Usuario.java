@@ -8,15 +8,13 @@ package com.itsalutenzen.demo.clases;
  *
  * @author LUKAS GAMER
  */
-public class Paciente {
- 
-    
+public class Usuario {
     public String rut;
     public String nombre;
     public int num_doc;
     public int edad;
 
-    public Paciente(String rut, String nombre, int num_doc, int edad) {
+    public Usuario(String rut, String nombre, int num_doc, int edad) {
         this.rut = rut;
         this.nombre = nombre;
         this.num_doc = num_doc;

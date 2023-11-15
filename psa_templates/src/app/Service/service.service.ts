@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Paciente } from '../Model/Paciente';
+import { Usuario } from '../Model/Usuario';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,42 +12,38 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getPacientes(): Observable<Paciente[]> {
+  getUsuarios(): Observable<Usuario[]> {
     // Verificar si la ubicación no es localhost:4200
     if (window.location.origin !== 'http://localhost:4200') {
       console.log('Solicitud no permitida desde esta ubicación.');
       // Puedes devolver un observable vacío o lanzar un error, según tu necesidad
-      return new Observable<Paciente[]>(observer => {
+      return new Observable<Usuario[]>(observer => {
         observer.complete(); // Observable vacío
       });
     }
     // Si la ubicación es localhost:4200, realizar la solicitud GET
-    return this.http.get<Paciente[]>(`${this.apiUrl}/psa/hello`);
+    return this.http.get<Usuario[]>(`${this.apiUrl}/psa/hello`);
   }
 
-  buscarPacientePorRut(rut: string): Observable<Paciente> {
-    return this.http.get<Paciente>(`${this.apiUrl}/psa/${rut}`);
+  buscarUsuarioPorRut(rut: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}/psa/${rut}`);
     
   }
 
   encenderLed() {
     return this.http.get(`${this.apiUrl}/psa/arduino/encender`);
-}
-apagarLed() {
-  return this.http.get(`${this.apiUrl}/psa/arduino/apagar`);
-}
+  }
+
+  apagarLed() {
+    return this.http.get(`${this.apiUrl}/psa/arduino/apagar`);
+  }
   activarArduino() {
     return this.http.get(`${this.apiUrl}/psa/arduino`);
   }
 
-
-
-
-
-
-  enviarCategoriaPaciente(categoriaPaciente: string): Observable<any> { // POST para enviar
-    const data = { categoriaPaciente }; 
-    return this.http.post<any>(`${this.apiUrl}/psa/enviarCategoriaPaciente`, data);
+  enviarCategoriaUsuario(categoriaUsuario: string): Observable<any> { // POST para enviar
+    const data = { categoriaUsuario }; 
+    return this.http.post<any>(`${this.apiUrl}/psa/enviarCategoriaUsuario`, data);
     console.log('POST enviado')
   }
 

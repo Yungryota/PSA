@@ -13,12 +13,12 @@ import oracle.nosql.driver.ops.QueryResult;
 import oracle.nosql.driver.ops.QueryIterableResult;
 import java.util.ArrayList;
 import oracle.nosql.driver.values.MapValue;
-import com.itsalutenzen.demo.clases.Paciente;
+import com.itsalutenzen.demo.clases.Usuario;
 
 public class viewTable {
 
-public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) {
-    ArrayList<Paciente> pacientesList = new ArrayList<>();
+public ArrayList<Usuario> executeQueries(NoSQLHandle handle, String tableName) {
+    ArrayList<Usuario> pacientesList = new ArrayList<>();
 
     try (QueryRequest queryRequest = new QueryRequest().setStatement("select * from " + tableName)) {
         ArrayList<MapValue> results = new ArrayList<>();
@@ -35,10 +35,10 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
             int numdoc = res.getInt("num_doc");
             // Obtén otros atributos del paciente de manera similar
 
-            // Crea un objeto de la clase Paciente con los datos obtenidos
-            Paciente paciente = new Paciente(rut, nombre, numdoc, edad);
+            // Crea un objeto de la clase Usuario con los datos obtenidos
+            Usuario paciente = new Usuario(rut, nombre, numdoc, edad);
 
-            // Agrega el objeto Paciente a la lista
+            // Agrega el objeto Usuario a la lista
             pacientesList.add(paciente);
         }
     } catch (Exception e) {
@@ -69,7 +69,7 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
         return null;
     }
     
-      public Paciente buscarPorRut(NoSQLHandle handle, String rut) { //3: solicita datos 
+      public Usuario buscarPorRut(NoSQLHandle handle, String rut) { //3: solicita datos 
         QueryIterableResult results = null;
 
         try {
@@ -82,7 +82,7 @@ public ArrayList<Paciente> executeQueries(NoSQLHandle handle, String tableName) 
                 int edad = res.getInt("edad");
                 int numDoc = res.getInt("num_doc");
 
-                Paciente paciente = new Paciente(rut, nombre, numDoc, edad);
+                Usuario paciente = new Usuario(rut, nombre, numDoc, edad);
                 return paciente;
             }
         } catch (Exception e) { //4: figura en el sistema 

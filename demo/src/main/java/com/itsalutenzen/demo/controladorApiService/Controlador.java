@@ -16,7 +16,7 @@ import oracle.nosql.driver.NoSQLHandle;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.itsalutenzen.demo.clases.Paciente;
+import com.itsalutenzen.demo.clases.Usuario;
 import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
 import com.itsalutenzen.demo.oraclecloud.viewTable;
 import jssc.SerialPort;
@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controlador {
 
     @GetMapping("/hello") /* http://localhost:8080/psa/hello test por eliminar funciones futuras */
-    public ArrayList<Paciente> getPatients() {
+    public ArrayList<Usuario> getPatients() {
         String tableName = "paciente";
         AppConfigSql appConfig = new AppConfigSql();
         NoSQLHandle handle = appConfig.connectToDatabase();
@@ -49,7 +49,7 @@ public class Controlador {
         return viewTable.executeQueries(handle, tableName);
     }
     @GetMapping("/{rut}")
-    public Paciente getAuth(@PathVariable String rut){
+    public Usuario getAuth(@PathVariable String rut){
         
         viewTable auth = new viewTable();
         AppConfigSql appConfig = new AppConfigSql();
