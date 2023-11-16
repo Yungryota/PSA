@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.itsalutenzen.demo.clases;
-
+import com.itsalutenzen.demo.subsistemas.*;
+import oracle.nosql.driver.NoSQLHandle;
 /**
  *
  * @author LUKAS GAMER
@@ -58,4 +59,21 @@ public class Usuario {
         this.edad = edad;
     }
     
+    
+    //VALIDO EL VALOR ENTRANTE DESDE ANGULAR (LO QUE DIJO EL PROFE NACHO DE LA INYECCION DE SQL)
+    public Usuario validarInicioSesion(String rut){
+        if(rut.length() != 10){
+            return validarInicioSesion(rut) ;
+            //SI EL RUT NO ES DEL LARGO 12345678-9 (10 caract) NOTIFICA MAL USO 
+
+        }else{
+            //SI ESTA BN APLICA EL QUERY QUE ESTA DIRECTAMENTE DESDE ACA CON EL RUT YA VERIFICADO
+            AppConfigSql connect = new AppConfigSql();
+            NoSQLHandle handle = connect.connectToDatabase();
+            String sql= "SELECT * FROM paciente where rut ='"+rut+"'";
+            return connect.ejecutarConsulta(handle, sql);
+
+        }
+        
+    }
 }

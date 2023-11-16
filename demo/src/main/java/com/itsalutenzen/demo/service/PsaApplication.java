@@ -1,4 +1,4 @@
-package com.itsalutenzen.demo.clases;
+package com.itsalutenzen.demo.service;
 /* imports en desuso
 import com.oracle.nosql.spring.data.core.NosqlOperations;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -9,6 +9,9 @@ import org.springframework.boot.CommandLineRunner;
 
 */
 
+import com.itsalutenzen.demo.clases.Temperatura;
+import com.itsalutenzen.demo.clases.Usuario;
+import com.itsalutenzen.demo.subsistemas.ConexionPuertoSerial;
 import oracle.nosql.driver.NoSQLHandle;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +20,7 @@ import com.oracle.nosql.spring.data.repository.config.EnableNosqlRepositories;
 import java.io.File;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import com.itsalutenzen.demo.oraclecloud.AppConfigSql;
+import com.itsalutenzen.demo.subsistemas.AppConfigSql;
 import java.io.IOException;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
@@ -41,9 +44,8 @@ public class PsaApplication {
 
            
            System.out.println(new File("").getAbsolutePath());
-           MicroControlador arduino = new MicroControlador();
+        Temperatura sensorTemperatura = new Temperatura();
 
-        
        }
        
 

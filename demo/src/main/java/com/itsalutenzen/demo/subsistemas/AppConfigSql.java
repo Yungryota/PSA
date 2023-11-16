@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.itsalutenzen.demo.oraclecloud;
+package com.itsalutenzen.demo.subsistemas;
 
 
+import com.itsalutenzen.demo.clases.Usuario;
 import oracle.nosql.driver.NoSQLHandleConfig;
 import oracle.nosql.driver.Region;
 import oracle.nosql.driver.iam.SignatureProvider;
@@ -14,6 +15,9 @@ import java.io.File;
 import java.io.IOException;
 import oracle.nosql.driver.NoSQLHandle;
 import oracle.nosql.driver.NoSQLHandleFactory;
+import oracle.nosql.driver.ops.QueryIterableResult;
+import oracle.nosql.driver.ops.QueryRequest;
+import oracle.nosql.driver.values.MapValue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
     
@@ -27,6 +31,8 @@ import org.springframework.context.annotation.Configuration;
     private String service = "cloud";
     private String compartment = "ocid1.tenancy.oc1..aaaaaaaadgqh2q7vymblwz4hyt24r5jhpp2wf7cenwfefglxly7pqk32yx6a";
     @Bean
+    
+        //FUNCION QUE OBTIENE LAS CREDENCIALES DE ACCESO 
         public NosqlDbConfig nosqlDbConfig(){
              /* Config for cloud service */ 
             return new NosqlDbConfig("http://localhost:8080",
@@ -40,6 +46,7 @@ import org.springframework.context.annotation.Configuration;
                 );
 
         }   
+        //FUNCION QUE REALIZA LA CONEXION
         public NoSQLHandle connectToDatabase() {
             NoSQLHandleConfig config = new NoSQLHandleConfig(endpoint);
             if (compartment != null) {
@@ -52,6 +59,7 @@ import org.springframework.context.annotation.Configuration;
             return handle;
         }
         
+        //EN CASO DE NO PODER INTENTA ATRAVEZ DEL PROVEDOR
             private void configureAuth(NoSQLHandleConfig config) {
         try {
             SignatureProvider authProvider = new SignatureProvider();
@@ -60,6 +68,28 @@ import org.springframework.context.annotation.Configuration;
             System.err.println("Unable to configure authentication: " + ioe);
             System.exit(1);
         }
+    }
+            
+            //FUNCION PARA OBTENER RESULTADOS DE UNA QUERY QUE UNO ESCRIBIRA DIRECTAMENTE EN LA FUNCION DE LA 
+            //CLASE QUE UNO ESTIME, ESTA HECHO EN BASE A USUARIO, REVISAR CLASE USUARIO (Aun en pruebas
+            
+            public Usuario ejecutarConsulta(NoSQLHandle handle, String sentenciaSQL) {
+        try (QueryRequest queryRequest = new QueryRequest().setStatement(sentenciaSQL);
+             QueryIterableResult results = handle.queryIterable(queryRequest)) {
+            System.out.println("Resultados de la consulta:");
+            for (MapValue res : results) {
+                String rut = res.getString("rut");
+                String nombre = res.getString("nombre");
+                int edad = res.getInt("edad");
+                int numDoc = res.getInt("num_doc");
+                Usuario paciente = new Usuario(rut, nombre, numDoc, edad);
+                return paciente;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Maneja cualquier excepción que pueda ocurrir durante la consulta
+        }
+        return null; // Si no se encuentra ningún nombre o hay un error, retorna null
     }
 
 
