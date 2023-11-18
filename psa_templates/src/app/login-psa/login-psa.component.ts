@@ -23,16 +23,16 @@ export class LoginPsaComponent {
     this.service.buscarUsuarioPorRut(this.rutABuscar).subscribe(
       (Usuario) => {
         if (Usuario) {
-          this.isLoading = false; //pantalla carga
+          this.isLoading = false; //DA_RF1 - PASO 4: PANTALLA CARGA-->
           this.UsuarioEncontrado = Usuario;
-          this.mostrarMensaje = true;
+          this.mostrarMensaje = true;//DA_RF1 - PASO 8: FIGURA EN EL SISTEMA
           this.mensaje = 'El Usuario con RUT ' + this.rutABuscar + ' ha sido encontrado.';
           console.log(this.mensaje)
-          this.router.navigate(['/categorizacion-paciente']);//redirige a vita categoria
+          this.router.navigate(['/categorizacion-paciente']);//DA_RF1 - PASO 9: REDIRIGE VISTA CATEGORIA
         } else {
-          this.UsuarioEncontrado = null;
+          this.UsuarioEncontrado = null;//DA_RF1 - PASO 8: NO FIGURA EN EL SISTEMA
           this.mostrarMensaje = true;
-          this.mensaje = 'El Usuario con RUT ' + this.rutABuscar + ' no ha sido encontrado.'; //mensaje error
+          this.mensaje = 'El Usuario con RUT ' + this.rutABuscar + ' no ha sido encontrado.'; 
         }
       },
       (error) => {

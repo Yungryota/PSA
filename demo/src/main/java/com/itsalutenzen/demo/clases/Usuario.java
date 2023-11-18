@@ -27,8 +27,11 @@ public class Usuario {
         return "Paciente{" + "rut=" + rut + ", nombre=" + nombre + ", num_doc=" + num_doc + ", edad=" + edad + '}';
     }
 
-    public String getRut() {
-        return rut;
+    public String getRut() { //DA_RF1 - PASO 6: valida inicio de sesion
+        if(rut.length() != 10){
+            return rut;
+        }
+        return "Por favor, ingrese un rut valido";
     }
 
     public void setRut(String rut) {
@@ -60,20 +63,19 @@ public class Usuario {
     }
     
     
-    //VALIDO EL VALOR ENTRANTE DESDE ANGULAR (LO QUE DIJO EL PROFE NACHO DE LA INYECCION DE SQL)
-    public Usuario validarInicioSesion(String rut){
-        if(rut.length() != 10){
-            return validarInicioSesion(rut) ;
-            //SI EL RUT NO ES DEL LARGO 12345678-9 (10 caract) NOTIFICA MAL USO 
+    public Usuario obtenerRutUsuario(String rut) { //DA_RF1 - PASO 7: SELECT WHERE
+        AppConfigSql connect = new AppConfigSql();
+        NoSQLHandle handle = connect.connectToDatabase();
+        String sql = "SELECT * FROM paciente WHERE rut ='" + rut + "'"; // FIGURA EN EL SISTEMA
 
-        }else{
-            //SI ESTA BN APLICA EL QUERY QUE ESTA DIRECTAMENTE DESDE ACA CON EL RUT YA VERIFICADO
-            AppConfigSql connect = new AppConfigSql();
-            NoSQLHandle handle = connect.connectToDatabase();
-            String sql= "SELECT * FROM paciente where rut ='"+rut+"'";
+        try {
             return connect.ejecutarConsulta(handle, sql);
-
+        } catch (Exception ex) {
+            System.out.println("Error al buscar el usuario con RUT: " + rut);//DA_RF1 - PASO 7: NO FIGURA EN EL SISTEMA
+            ex.printStackTrace();
+            return null;
         }
-        
     }
+
+
 }

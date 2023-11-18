@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <!-- main -->
+    <!--DA_RF1 - PASO 1: DESPLIEGA VISTA LOGIN -->
     <div class="main-content">
       <div class="admin-access">
         <button (click)="goView()"class="btn btn-admin-access">
@@ -26,9 +26,9 @@
         <button type="button" class="enviar-btn" (click)="apagarLed()">Apagar</button> <!--2: Pulsa ok-->
       </div>
       <div class="centered-content">
-        <p>Ingrese su rut para iniciar</p> <!--1: Llena campos-->
-        <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input" [(ngModel)]="rutABuscar">
-        <button type="button" class="enviar-btn" (click)="buscarUsuario()">Enviar</button> <!--2: Pulsa ok-->
+        <p>Ingrese su rut para iniciar</p> 
+        <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input" [(ngModel)]="rutABuscar"><!--DA_RF1 - PASO 2: LLENA CAMPOS-->
+        <button type="button" class="enviar-btn" (click)="buscarUsuario()">Enviar</button> <!--<!--DA_RF1 - PASO 3: PULSA OK-->
         <div class="spinner-container" *ngIf="isLoading">
           <mat-spinner diameter="50" color="accent"></mat-spinner>
         </div>

@@ -25,7 +25,7 @@ export class ServiceService {
     return this.http.get<Usuario[]>(`${this.apiUrl}/psa/hello`);
   }
 
-  buscarUsuarioPorRut(rut: string): Observable<Usuario> {
+  buscarUsuarioPorRut(rut: string): Observable<Usuario> {//DA_RF1 - PASO 5: SOLICITA DATOS
     return this.http.get<Usuario>(`${this.apiUrl}/psa/${rut}`);
     
   }
