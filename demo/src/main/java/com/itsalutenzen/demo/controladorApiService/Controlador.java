@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-@CrossOrigin(origins = "http://localhost:4200/", maxAge = 9600)
+@CrossOrigin(origins = "http://192.168.1.7:4200/", maxAge = 9600)
 
 @RequestMapping({"/psa"})
 @RestController
@@ -84,7 +84,7 @@ public class Controlador {
     
     
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://192.168.1.7:4200")
     @PostMapping("/psa/enviarCategoriaPaciente") // hacer el post mapping en 
     public void recibirCategoriaPaciente(@RequestBody String categoriaPaciente) {
         System.out.println("Categoría del paciente recibida: " + categoriaPaciente);
