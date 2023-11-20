@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
 
-  private apiUrl = 'http://192.168.1.7:8080'; // Reemplaza con la URL de tu servidor API
+  private apiUrl = 'http://192.168.1.119:8080'; // Reemplaza con la URL de tu servidor API
 
   constructor(private http: HttpClient) { }
 
   getPacientes(): Observable<Paciente[]> {
     // Verificar si la ubicación no es localhost:4200
-    if (window.location.origin !== 'http://192.168.1.7:4200') {
+    if (window.location.origin !== 'http://192.168.1.119:4200') {
       console.log('Solicitud no permitida desde esta ubicación.');
       // Puedes devolver un observable vacío o lanzar un error, según tu necesidad
       return new Observable<Paciente[]>(observer => {
