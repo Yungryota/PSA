@@ -70,10 +70,10 @@ import org.springframework.context.annotation.Configuration;
         }
     }
             
-            //FUNCION PARA OBTENER RESULTADOS DE UNA QUERY QUE UNO ESCRIBIRA DIRECTAMENTE EN LA FUNCION DE LA 
-            //CLASE QUE UNO ESTIME, ESTA HECHO EN BASE A USUARIO, REVISAR CLASE USUARIO (Aun en pruebas
+    //FUNCION PARA OBTENER RESULTADOS DE UNA QUERY QUE UNO ESCRIBIRA DIRECTAMENTE EN LA FUNCION DE LA 
+    //CLASE QUE UNO ESTIME, ESTA HECHO EN BASE A USUARIO, REVISAR CLASE USUARIO (Aun en pruebas
             
-            public Usuario ejecutarConsulta(NoSQLHandle handle, String sentenciaSQL) {
+    public Usuario ejecutarConsulta(NoSQLHandle handle, String sentenciaSQL) {
         try (QueryRequest queryRequest = new QueryRequest().setStatement(sentenciaSQL);
              QueryIterableResult results = handle.queryIterable(queryRequest)) {
             System.out.println("Resultados de la consulta:");
@@ -82,7 +82,8 @@ import org.springframework.context.annotation.Configuration;
                 String nombre = res.getString("nombre");
                 int edad = res.getInt("edad");
                 int numDoc = res.getInt("num_doc");
-                Usuario paciente = new Usuario(rut, nombre, numDoc, edad);
+                String contacto = res.getString("contacto");;
+                Usuario paciente = new Usuario(rut, nombre, numDoc, edad, contacto);
                 return paciente;
             }
         } catch (Exception e) {
@@ -91,6 +92,7 @@ import org.springframework.context.annotation.Configuration;
         }
         return null; // Si no se encuentra ningún nombre o hay un error, retorna null
     }
+
 
 
 }

@@ -10,9 +10,10 @@ package com.itsalutenzen.demo.clases;
  */
 public class Medico extends Usuario{
     public String correoElectronico;
+    // variables asociadas al envio de correos 
 
-    public Medico(String correoElectronico, String rut, String nombre, int num_doc, int edad) {
-        super(rut, nombre, num_doc, edad);
+    public Medico(String correoElectronico, String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
         this.correoElectronico = correoElectronico;
     }
 

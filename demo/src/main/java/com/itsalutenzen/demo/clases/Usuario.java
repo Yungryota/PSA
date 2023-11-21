@@ -14,17 +14,20 @@ public class Usuario {
     public String nombre;
     public int num_doc;
     public int edad;
-
-    public Usuario(String rut, String nombre, int num_doc, int edad) {
+    public String contacto;
+    
+    public Usuario(String rut, String nombre, int num_doc, int edad, String contacto) {
         this.rut = rut;
         this.nombre = nombre;
         this.num_doc = num_doc;
         this.edad = edad;
+        this.contacto = contacto;
     }
+    
 
     @Override
     public String toString() {
-        return "Paciente{" + "rut=" + rut + ", nombre=" + nombre + ", num_doc=" + num_doc + ", edad=" + edad + '}';
+        return "Paciente{" + "rut=" + rut + ", nombre=" + nombre + ", num_doc=" + num_doc + ", edad=" + edad + ", contacto=" + contacto + '}';
     }
 
     public String getRut() { //DA_RF1 - PASO 6: valida inicio de sesion
@@ -41,6 +44,12 @@ public class Usuario {
     public String getNombre() {
         return nombre;
     }
+
+    public String getContacto() {
+        return contacto;
+    }
+    
+    
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -61,6 +70,12 @@ public class Usuario {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+    
+    
     
     
     public Usuario obtenerRutUsuario(String rut) { //DA_RF1 - PASO 7: SELECT WHERE

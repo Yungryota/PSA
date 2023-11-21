@@ -12,13 +12,13 @@ public class Paciente extends Usuario{
     public String categorizacionPaciente;
     public String recetaPaciente;
 
-    public Paciente(String rut, String nombre, int num_doc, int edad) {
-        super(rut, nombre, num_doc, edad);
+    public Paciente(String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
     }
     
 
-    public Paciente(String categorizacionPaciente, String recetaPaciente, String rut, String nombre, int num_doc, int edad) {
-        super(rut, nombre, num_doc, edad);
+    public Paciente(String categorizacionPaciente, String recetaPaciente, String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
         this.categorizacionPaciente = categorizacionPaciente;
         this.recetaPaciente = recetaPaciente;
     }

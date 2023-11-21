@@ -55,7 +55,7 @@ public class Consulta{ //Actulizar en diagrama de clases
         this.resenia = resenia;
     }
     
-    public void agregarResenia(String reseniaTexto, int calificacion) {
+    public void generaResenia(String reseniaTexto, int calificacion) {
         if (this.resenia == null) {
             this.resenia = new Resenia(reseniaTexto, calificacion);
         } else {

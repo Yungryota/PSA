@@ -12,8 +12,8 @@ public class Administrativo extends Usuario{
     private String cargo;
     private String permisos;
 
-    public Administrativo(String cargo, String permisos, String rut, String nombre, int num_doc, int edad) {
-        super(rut, nombre, num_doc, edad);
+    public Administrativo(String cargo, String permisos, String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
         this.cargo = cargo;
         this.permisos = permisos;
     }

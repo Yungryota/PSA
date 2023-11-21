@@ -44,14 +44,14 @@ public class Controlador {
     //SESIÓN ATRAVEZ DEL RUT
     public Usuario getAuth(@PathVariable String rut){
         
-        Usuario usuario = new Usuario(rut, "nombre inicial", 0, 0); // Crea una instancia de Usuario
         
-        Usuario resultadoValidacion = usuario.validarInicioSesion(rut); // Llama a validarInicioSesion
+        Usuario usuario = new Usuario(rut, "nombre inicial", 0, 0, "contacto inicial");
+        Usuario resultadoValidacion = usuario.obtenerRutUsuario(rut); // Llama a validarInicioSesion
         
         // Maneja el resultado de la validación según lo que retorne la función
         if (resultadoValidacion.equals("Error")) {
             System.out.println("RUT inválido");
-            return usuario.validarInicioSesion(rut);
+            return usuario.obtenerRutUsuario(rut);
         } else {
             System.out.println("El RUT es válido, nombre encontrado: " + resultadoValidacion);
             return resultadoValidacion;
@@ -59,11 +59,6 @@ public class Controlador {
     }
     
     @GetMapping("arduino/encender")
-
-    
-    
-    
-    
     
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/psa/enviarCategoriaPaciente") // hacer el post mapping en 
