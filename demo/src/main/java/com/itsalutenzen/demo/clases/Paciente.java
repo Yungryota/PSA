@@ -6,58 +6,40 @@ package com.itsalutenzen.demo.clases;
 
 /**
  *
- * @author LUKAS GAMER
+ * @author Javiera
  */
-public class Paciente {
- 
+public class Paciente extends Usuario{
+    public String categorizacionPaciente;
+    public String recetaPaciente;
+
+    public Paciente(String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
+    }
     
-    public String rut;
-    public String nombre;
-    public int num_doc;
-    public int edad;
 
-    public Paciente(String rut, String nombre, int num_doc, int edad) {
-        this.rut = rut;
-        this.nombre = nombre;
-        this.num_doc = num_doc;
-        this.edad = edad;
+    public Paciente(String categorizacionPaciente, String recetaPaciente, String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
+        this.categorizacionPaciente = categorizacionPaciente;
+        this.recetaPaciente = recetaPaciente;
     }
 
-    @Override
-    public String toString() {
-        return "Paciente{" + "rut=" + rut + ", nombre=" + nombre + ", num_doc=" + num_doc + ", edad=" + edad + '}';
+    public String getCategorizacionPaciente() {
+        return categorizacionPaciente;
     }
 
-    public String getRut() {
-        return rut;
+    public String getRecetaPaciente() {
+        return recetaPaciente;
     }
 
-    public void setRut(String rut) {
-        this.rut = rut;
+    public void setCategorizacionPaciente(String categorizacionPaciente) {
+        this.categorizacionPaciente = categorizacionPaciente;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setRecetaPaciente(String recetaPaciente) {
+        this.recetaPaciente = recetaPaciente;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getNum_doc() {
-        return num_doc;
-    }
-
-    public void setNum_doc(int num_doc) {
-        this.num_doc = num_doc;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
+    
+   
+    
     
 }

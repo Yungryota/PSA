@@ -10,30 +10,21 @@ package com.itsalutenzen.demo.clases;
  */
 
 // Dar vuelta la flecha de diamante en el diagrama de clases !!!!!!!!!!!!!!!!!!!!!!!!! --> IMPORTANTE RECORDAR
-public class Consulta { //Actulizar en diagrama de clases
-    private String estadoConsulta; 
-    //public String pregunta; quitar del diagrma de clases
-    public String categoriaPaciente;
-    private Paciente paciente; // Representado en el diagrama de clases como agregacion 
+public class Consulta{ //Actulizar en diagrama de clases
+    public String estadoConsulta; 
     public String ResultadoConsulta; // Representar en diagrama de clases
     public String diagnosticoPaciente;
+    private Resenia resenia;
 
-    public Consulta() {
-    }
-
-    public Consulta(String estadoConsulta, String categoriaPaciente, String ResultadoConsulta, String diagnosticoPaciente) {
+    public Consulta(String estadoConsulta, String ResultadoConsulta, String diagnosticoPaciente, Resenia resenia) {
         this.estadoConsulta = estadoConsulta;
-        this.categoriaPaciente = categoriaPaciente;
         this.ResultadoConsulta = ResultadoConsulta;
         this.diagnosticoPaciente = diagnosticoPaciente;
+        this.resenia = resenia;
     }
 
     public String getEstadoConsulta() {
         return estadoConsulta;
-    }
-
-    public String getCategoriaPaciente() {
-        return categoriaPaciente;
     }
 
     public String getResultadoConsulta() {
@@ -44,12 +35,12 @@ public class Consulta { //Actulizar en diagrama de clases
         return diagnosticoPaciente;
     }
 
-    public void setEstadoConsulta(String estadoConsulta) {
-        this.estadoConsulta = estadoConsulta;
+    public Resenia getResenia() {
+        return resenia;
     }
 
-    public void setCategoriaPaciente(String categoriaPaciente) {
-        this.categoriaPaciente = categoriaPaciente;
+    public void setEstadoConsulta(String estadoConsulta) {
+        this.estadoConsulta = estadoConsulta;
     }
 
     public void setResultadoConsulta(String ResultadoConsulta) {
@@ -60,11 +51,16 @@ public class Consulta { //Actulizar en diagrama de clases
         this.diagnosticoPaciente = diagnosticoPaciente;
     }
 
-    public String obtenerNombrePaciente() { //Actulizar funciones en el dagrama de clases --> IMPORTANTE RECORDAR
-        return paciente.getNombre();
+    public void setResenia(Resenia resenia) {
+        this.resenia = resenia;
     }
-
-    public String obtenerRutPaciente() { 
-        return paciente.getRut();
+    
+    public void generaResenia(String reseniaTexto, int calificacion) {
+        if (this.resenia == null) {
+            this.resenia = new Resenia(reseniaTexto, calificacion);
+        } else {
+            System.out.println("Ya existe una resenia para esta consulta.");
+        }
     }
+    
 }

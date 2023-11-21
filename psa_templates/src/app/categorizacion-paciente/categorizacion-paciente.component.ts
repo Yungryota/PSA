@@ -144,7 +144,7 @@ export class CategorizacionPacienteComponent {
       prompt("Conteste el cuestionario para continuar");
     }
 
-    this.service.enviarCategoriaPaciente(this.categoriaPaciente).subscribe() // solicitud post
+    this.service.enviarCategoriaUsuario(this.categoriaPaciente).subscribe() // solicitud post
 
   }
 

@@ -1,4 +1,4 @@
-export class Paciente{
+export class Usuario{
     rut: String;
     num_doc: Number;
     nombre: String;
