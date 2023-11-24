@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+}
+.sidebar {
+    width: 20%; 
+    height: 100vh;
+    background-color: #3C84FB;
+}
+.cont-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%; 
+    padding: 20%;
+}
+
+.cont-logo img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 100%;
+    margin-top: 70%;
+}
+.main-content{
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.temperatura-container{
+    margin-left: 10%;
+    color: #000;
+    margin: 30px;
+}
+.text{
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 300px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #3C84FB;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 450px;
+    border-radius: 15px;
+    font-size: 30px;
+}

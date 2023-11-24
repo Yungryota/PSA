@@ -132,12 +132,12 @@ export class CategorizacionPacienteComponent {
      prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
     } else if (this.nivelPrioridad == 4) {
       this.categoriaPaciente = 'C4';
-      this.router.navigate(["/listar"])
+      this.router.navigate(["/escaneo-temperaruta"])
      console.log('categoria: ', this.categoriaPaciente)
      prompt("Usted ha sido categorizado como C4 y será refirigido para continuar con su evaluación");
     } else if (this.nivelPrioridad == 5) {
       this.categoriaPaciente = 'C5';
-      this.router.navigate(["/listar"])
+      this.router.navigate(["/escaneo-temperaruta"])
       console.log('categoria: ', this.categoriaPaciente)
       prompt("Usted ha sido categorizado como C5 y será refirigido para continuar con su evaluación");
     } else {
