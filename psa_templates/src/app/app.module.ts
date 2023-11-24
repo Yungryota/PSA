@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ListarComponent } from './Paciente/listar/listar.component';
 import { ServiceService } from '../app/Service/service.service';
 import {HttpClientModule} from '@angular/common/http';
-import { LoginPsaComponent } from './login-psa/login-psa.component';
-import { CategorizacionPacienteComponent } from './categorizacion-paciente/categorizacion-paciente.component';
+import { LoginPsaComponent } from './vistas/login-psa/login-psa.component';
+import { CategorizacionPacienteComponent } from './vistas/categorizacion-paciente/categorizacion-paciente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { EscaneoTemperaturaComponent } from './vistas/escaneo-temperatura/escaneo-temperatura.component';
+
 
 
 
@@ -20,7 +22,8 @@ import { MatRadioModule } from '@angular/material/radio';
     AppComponent,
     ListarComponent,
     LoginPsaComponent,
-    CategorizacionPacienteComponent
+    CategorizacionPacienteComponent,
+    EscaneoTemperaturaComponent
   ],
   imports: [
     BrowserModule,
