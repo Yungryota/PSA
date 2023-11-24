@@ -84,7 +84,7 @@ export class CategorizacionPacienteComponent {
     if (tiempoSintomas <= 6) {
       this.nivelPrioridad = this.nivelPrioridad;
     } else if (tiempoSintomas > 6 && tiempoSintomas <= 12) {
-      this.nivelPrioridad = 3;
+      this.nivelPrioridad = 4;
     } else {
       this.nivelPrioridad = 1;
     }
@@ -147,5 +147,8 @@ export class CategorizacionPacienteComponent {
     this.service.enviarCategoriaUsuario(this.categoriaPaciente).subscribe() // solicitud post
 
   }
+
+
+  
 
 }
