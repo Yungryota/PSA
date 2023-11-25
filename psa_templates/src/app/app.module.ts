@@ -13,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { EscaneoTemperaturaComponent } from './vistas/escaneo-temperatura/escaneo-temperatura.component';
+import { CuestionarioConsultaComponent } from './vistas/cuestionario-consulta/cuestionario-consulta.component';
 
 
 
@@ -23,7 +24,8 @@ import { EscaneoTemperaturaComponent } from './vistas/escaneo-temperatura/escane
     ListarComponent,
     LoginPsaComponent,
     CategorizacionPacienteComponent,
-    EscaneoTemperaturaComponent
+    EscaneoTemperaturaComponent,
+    CuestionarioConsultaComponent
   ],
   imports: [
     BrowserModule,

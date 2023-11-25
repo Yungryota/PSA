@@ -1,0 +1,23 @@
+<div class="main-content">
+    <div class="sidebar">
+      <div class="cont-logo">
+        <img src="assets/img/psaLogo.png" alt="">
+      </div>
+    </div>
+
+    <div class="temperatura-container">
+        <h1 class="text">Presione el botón para comenzar el escaneo</h1>
+        <h2>Respuestas:</h2>
+  
+        <h3>¿Te gusta el chocolate?</h3>
+        <p>Respuesta: {{ respuestaSiNo }}</p>
+      
+        <h3>¿Cuál es tu color favorito?</h3>
+        <ul>
+          <li *ngFor="let color of respuestaMultiple">{{ color }}</li>
+        </ul>
+    </div>
+
+    
+
+</div>
