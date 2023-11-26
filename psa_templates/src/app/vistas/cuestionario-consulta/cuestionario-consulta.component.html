@@ -6,16 +6,95 @@
     </div>
 
     <div class="temperatura-container">
-        <h1 class="text">Presione el botón para comenzar el escaneo</h1>
-        <h2>Respuestas:</h2>
-  
-        <h3>¿Te gusta el chocolate?</h3>
-        <p>Respuesta: {{ respuestaSiNo }}</p>
-      
-        <h3>¿Cuál es tu color favorito?</h3>
-        <ul>
-          <li *ngFor="let color of respuestaMultiple">{{ color }}</li>
-        </ul>
+        <h1 class="text">Responda las preguntas según sus sintomas</h1>
+        <div class="pregresp">
+
+          <div class="pregunta">1. Indique su edad</div>
+          <div class="respuestas">
+            <input class="input-edad" name="preg1" #edadInput type="number" placeholder="Ingrese su edad" />
+            <button class="boton-edad" (click)="guardarEdad(edadInput.value)">Guardar Edad</button>
+          </div>
+          
+
+          <div class="pregunta" style="">2. Indique su sexo<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg2" (click)="guardarPreguntas('Femenino')"/> Femenino<br />
+            <input type="radio" name="preg2" (click)="guardarPreguntas('Masculino')"/> Masculino<br />
+          </div>
+
+          <div class="pregunta">3. ¿Fuma el paciente (fumador en la actualidad) o ha fumado alguna vez (exfumador)?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg3" (click)="guardarPreguntas('fumador en la actualidad')"/> fumador en la actualidad<br />
+            <input type="radio" name="preg3" (click)="guardarPreguntas('no consume tabaco')"/> No<br />
+            <input type="radio" name="preg3" (click)="guardarPreguntas('exfumador')"/> exfumador<br />
+          </div>
+
+          <div class="pregunta">4. ¿Consumes alcohol?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg4" (click)="guardarPreguntas('Consume alcohol')"/> Sí, consumo alcohol<br />
+            <input type="radio" name="preg4" (click)="guardarPreguntas('Exconsumidor de alcohol')"/> Exconsumidor<br />
+            <input type="radio" name="preg4" (click)="guardarPreguntas('No consume alcohol')"/> No consumo alcohol<br />
+          </div>
+
+          <div class="pregunta">5. ¿Presenta tos?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg5" (click)="guardarPreguntas('Tos constante')"/> Sí, tos constante<br />
+            <input type="radio" name="preg5" (click)="guardarPreguntas('Tos seca')"/> Tos seca<br />
+            <input type="radio" name="preg5" (click)="guardarPreguntas('Tos productiva')"/> Tos productiva (con flemas)<br />
+            <input type="radio" name="preg5" (click)="guardarPreguntas('Tos y dolor en el pecho, dificultad respiratoria')"/> Tos y dolor en el pecho, dificultad respiratoria<br />
+            <input type="radio" name="preg5" (click)="guardarPreguntas('Tos: no')"/> No<br />
+          </div>
+
+          <div class="pregunta">6. ¿Te sientes afiebrado?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg6" (click)="guardarPreguntas('Fiebre: si')"/> Sí<br />
+            <input type="radio" name="preg6" (click)="guardarPreguntas('Fiebre intensa')"/> Sí, intensamente<br />
+            <input type="radio" name="preg6" (click)="guardarPreguntas('Fiebre, dolor de cabeza, muscular, fatiga')"/> Sí, junto con dolor de cabeza, dolor muscular o fatiga<br />
+            <input type="radio" name="preg6" (click)="guardarPreguntas('Fiebre: no')"/> No<br />
+          </div>
+
+          <div class="pregunta">7. ¿Tienes dificultades para dormir o experimentas fatiga con frecuencia?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg7" (click)="guardarPreguntas('Dificultad al dormir')"/> Sí, Tengo dificultades al dormir<br />
+            <input type="radio" name="preg7" (click)="guardarPreguntas('Dificultad al dormir: no')"/> No<br />
+          </div>
+          
+          <div class="pregunta">8. ¿Padece el paciente EAC?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg8" (click)="guardarPreguntas('Padece diabetes tipo 1')"/> Sí, padezco diabetes tipo 1<br />
+            <input type="radio" name="preg8" (click)="guardarPreguntas('Padece diabetes tipo 2')"/> Sí, padezco diabetes tipo 2<br />
+            <input type="radio" name="preg8" (click)="guardarPreguntas('Diabetes: no')"/> No padezco diabetes<br />
+          </div>
+
+          <div class="pregunta">9. ¿Ha sufrido el paciente un IM, una embolia o AIT en algún momento de su vida?<br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg9" (click)="guardarPreguntas('Ha sufrido embolia')"/> Sí, he padecido de ebolia<br />
+            <input type="radio" name="preg9" (click)="guardarPreguntas('Ha sufrido un IM o AIT')"/> Sí, un IM, AIT<br />
+            <input type="radio" name="preg9" (click)="guardarPreguntas('No padece enfermedad arterial')"/> No<br />
+          </div>
+
+          <div class="pregunta">10. ¿Le han diagnosticado al paciente Enfermedad pulmonar?<br/></div>
+          <div class="respuestas">
+            <input type="radio" name="preg10" (click)="guardarPreguntas('Padece enfermedad pulmonar')"/> Sí, padezco enfermedades pulmonares<br />
+            <input type="radio" name="preg10" (click)="guardarPreguntas('Enfermedad pulmonar: no')"/> No padezco<br />
+          </div>
+
+          <div class="pregunta">11. ¿Es el paciente hipertenso?<br/></div>
+          <div class="respuestas">
+            <input type="radio" name="preg11" (click)="guardarPreguntas('Paciente hipertenso')"/> Soy hipertenso<br />
+            <input type="radio" name="preg11" (click)="guardarPreguntas('Hipertension: no')"/> No<br />
+          </div>
+
+          <div class="pregunta">1. ¿Informa el paciente de que sufre dolor al realizar cualquier tipo de ejercicio físico, incluso caminar? ¿Remite el dolor cuando el paciente se toma un descanso? ¿Dónde (en qué parte del cuerpo) se localiza el dolor?
+            <br /></div>
+          <div class="respuestas">
+            <input type="radio" name="preg12" (click)="guardarPreguntas('Dolor fisico')"/> Dolor físico<br />
+            <input type="radio" name="preg12" (click)="guardarPreguntas('Dolor al caminar')"/> Dolor al caminar<br />
+            <input type="radio" name="preg12" (click)="guardarPreguntas('Dolor en descanso')"/> Dolor en descanso<br />
+            <input type="radio" name="preg12" (click)="guardarPreguntas('Sin dolor')"/> Sin dolor<br />
+          </div>
+
+        </div>
     </div>
 
     

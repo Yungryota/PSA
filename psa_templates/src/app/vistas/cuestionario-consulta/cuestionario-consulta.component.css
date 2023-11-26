@@ -5,7 +5,7 @@ body{
 }
 .sidebar {
     width: 20%; 
-    height: 100vh;
+    height: 250vh;
     background-color: #3C84FB;
 }
 .cont-logo {
@@ -33,3 +33,35 @@ body{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+.temperatura-container{
+    margin: 40px;
+}
+
+.pregunta{
+    margin-bottom: 10px;
+}
+/* Estilos para el input */
+.input-edad {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el botón */
+  .boton-edad {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .boton-edad:hover {
+    background-color: #2980b9;
+  }
+  

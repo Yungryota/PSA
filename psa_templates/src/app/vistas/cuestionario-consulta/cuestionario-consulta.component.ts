@@ -6,6 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./cuestionario-consulta.component.css']
 })
 export class CuestionarioConsultaComponent {
-  respuestaSiNo: string = 'Sí'; // Ejemplo de respuesta sí o no
-  respuestaMultiple: string[] = ['Rojo', 'Azul']; // Ejemplo de respuesta múltiple
+   respuestaPregunta1: string = '';
+   respuesta: Array<string> = [];
+
+
+  
+   guardarPreguntas(resp: string){
+    this.respuesta.push(resp); 
+    console.log('Funciona tu idea:', resp);
+    console.log(this.respuesta)
+  }
+  
+  guardarEdad(edad: string){
+    this.respuesta.push('Edad: ' + edad); // Agrega la edad al arreglo de respuestas
+    console.log('Edad ingresada:', edad);
+    console.log(this.respuesta);
+  }
+
 }
