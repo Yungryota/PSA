@@ -47,5 +47,10 @@ export class ServiceService {
     console.log('POST enviado')
   }
 
+  recibirTemperatura() {
+    return this.http.get(`${this.apiUrl}/psa/arduino/temp`);
+  }
+
+
   
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.itsalutenzen.demo.clases.Usuario;
+import com.itsalutenzen.demo.clases.Temperatura;
 import com.itsalutenzen.demo.subsistemas.AppConfigSql;
 
 import jssc.SerialPort;
@@ -64,6 +65,17 @@ public class Controlador {
     @PostMapping("/psa/enviarCategoriaPaciente") // hacer el post mapping en 
     public void recibirCategoriaPaciente(@RequestBody String categoriaPaciente) {
         System.out.println("Categoría del paciente recibida: " + categoriaPaciente);
+    }
+    
+    @GetMapping("arduino/temp")
+    public int getAuth(){
+        
+        Temperatura temperatura = new Temperatura(); 
+        
+        return temperatura.obtenerTemperatura(); // Llama a validarInicioSesion
+        
+        // Maneja el resultado de la validación según lo que retorne la función
+        
     }
 
 }

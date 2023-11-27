@@ -16,8 +16,11 @@ export class EscaneoTemperaturaComponent {
   constructor(private service: ServiceService, private router: Router){}
 
   escanearTemperatura(){
-    this.service.activarArduino().subscribe()
-    console.log('Hola, estoy encendiendo el arduino')
+    this.service.recibirTemperatura().subscribe()
+
+    const temp = this.service.recibirTemperatura();
+
+    console.log(temp)
     //Llama a funciones que obtiene la tempetarruta
     this.obtenerTemperaturaPaciente()
   }
