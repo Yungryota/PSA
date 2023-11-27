@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Configuration;
     
     private String endpoint = "sa-santiago-1";
     private String service = "cloud";
-    private String compartment = "ocid1.tenancy.oc1..aaaaaaaadgqh2q7vymblwz4hyt24r5jhpp2wf7cenwfefglxly7pqk32yx6a";
+    private String compartment = "ocid1.tenancy.oc1..aaaaaaaaczpgg2opew4dwibalinhthzqqy5jp4ynfy4pree57xrunp3tjceq";
     @Bean
     
         //FUNCION QUE OBTIENE LAS CREDENCIALES DE ACCESO 
@@ -37,8 +37,8 @@ import org.springframework.context.annotation.Configuration;
              /* Config for cloud service */ 
             return new NosqlDbConfig("http://localhost:8080",
             new SignatureProvider(
-                "ocid1.tenancy.oc1..aaaaaaaadgqh2q7vymblwz4hyt24r5jhpp2wf7cenwfefglxly7pqk32yx6a",  //tenantId
-                "ocid1.tenancy.oc1..aaaaaaaadgqh2q7vymblwz4hyt24r5jhpp2wf7cenwfefglxly7pqk32yx6a",  //userId
+                "ocid1.tenancy.oc1..aaaaaaaaczpgg2opew4dwibalinhthzqqy5jp4ynfy4pree57xrunp3tjceq",  //tenantId
+                "ocid1.user.oc1..aaaaaaaawzqtjaq5r247s27kiqk3frzjfzosjnun5zk7q576ebyzsxyrllga",  //userId
                 "33:5e:41:bc:2b:8d:ba:3d:21:91:63:9b:ff:87:0c:f9",  // fingerprint of the key
                 new File("Ellukas_2023-09-29T20_06_15.554Z.pem"), // path to your private key file
                 null // passphrase for the (encrypted) private key
