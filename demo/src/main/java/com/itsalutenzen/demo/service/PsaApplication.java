@@ -45,6 +45,7 @@ public class PsaApplication {
            
            System.out.println(new File("").getAbsolutePath());
         Temperatura sensorTemperatura = new Temperatura();
+        sensorTemperatura.obtenerTemperatura();
 
        }
        
