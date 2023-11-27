@@ -40,7 +40,7 @@ import org.springframework.context.annotation.Configuration;
                 "ocid1.tenancy.oc1..aaaaaaaaczpgg2opew4dwibalinhthzqqy5jp4ynfy4pree57xrunp3tjceq",  //tenantId
                 "ocid1.user.oc1..aaaaaaaawzqtjaq5r247s27kiqk3frzjfzosjnun5zk7q576ebyzsxyrllga",  //userId
                 "33:5e:41:bc:2b:8d:ba:3d:21:91:63:9b:ff:87:0c:f9",  // fingerprint of the key
-                new File("Ellukas_2023-09-29T20_06_15.554Z.pem"), // path to your private key file
+                new File("ellukas121@gmail.com_2023-11-27T02_23_58.258Z.pem"), // path to your private key file
                 null // passphrase for the (encrypted) private key
                      )
                 );
