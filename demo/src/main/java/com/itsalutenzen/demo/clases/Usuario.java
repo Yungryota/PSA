@@ -81,7 +81,7 @@ public class Usuario {
     public Usuario obtenerRutUsuario(String rut) { //DA_RF1 - PASO 7: SELECT WHERE
         AppConfigSql connect = new AppConfigSql();
         NoSQLHandle handle = connect.connectToDatabase();
-        String sql = "SELECT * FROM paciente WHERE rut ='" + rut + "'"; // FIGURA EN EL SISTEMA
+        String sql = "SELECT * FROM usuario WHERE rut ='" + rut + "'"; // FIGURA EN EL SISTEMA
 
         try {
             return connect.ejecutarConsulta(handle, sql);
