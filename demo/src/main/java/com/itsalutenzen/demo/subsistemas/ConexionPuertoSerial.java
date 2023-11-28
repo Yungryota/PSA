@@ -8,6 +8,8 @@ public class ConexionPuertoSerial {
     private SerialPort puertoSerie;
     private String puertoSerial = "COM4"; // Definición del puerto por defecto
     private double temperatura;
+    private int contadorLecturas = 0;
+    private final int LECTURAS_DESCARTADAS = 5;
     
     public ConexionPuertoSerial() {
         this.puertoSerie = new SerialPort(this.puertoSerial);
@@ -37,8 +39,12 @@ public class ConexionPuertoSerial {
                         try {
                             String receivedData = puertoSerie.readString(event.getEventValue());
                             if (receivedData != null && !receivedData.isEmpty()) {
-                                temperatura = Double.parseDouble(receivedData.trim());
-                                System.out.println("Temperatura leída: " + temperatura);
+                                if (contadorLecturas >= LECTURAS_DESCARTADAS) {
+                                    temperatura = Double.parseDouble(receivedData.trim());
+                                    System.out.println("Temperatura leída: " + temperatura);
+                                } else {
+                                    contadorLecturas++;
+                                }
                             }
                         } catch (SerialPortException | NumberFormatException ex) {
                             System.out.println("Error al leer datos: " + ex);

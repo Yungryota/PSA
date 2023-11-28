@@ -15,20 +15,22 @@ export class EscaneoTemperaturaComponent {
 
   constructor(private service: ServiceService, private router: Router){}
 
-  escanearTemperatura(){
-    this.service.recibirTemperatura().subscribe()
-
-    const temp = this.service.recibirTemperatura();
-
-    console.log(temp)
-    //Llama a funciones que obtiene la tempetarruta
-    this.obtenerTemperaturaPaciente()
+  escanearTemperatura() {
+    // Suscripción al Observable
+    this.service.recibirTemperatura().subscribe(
+      (data: any) => {
+        console.log(data); // Aquí recibes los datos del servidor
+        // Llama a funciones que obtienen la temperatura
+        //this.obtenerTemperaturaPaciente();// imprime temp
+        this.temperaturaPaciente = data;
+      },
+      (error: any) => {
+        console.error(error); // Manejo de errores si ocurre alguno
+      }
+    );
   }
+  
 
-  obtenerTemperaturaPaciente(){
-    //Llama servicio que obtiene la temperatura escaneada desde arduino
-    this.temperaturaPaciente = '40' +'°' // setea la temperatura con la obtenidad desde el llamado
-  }
 
   enviarTemperatura(){
     this.router.navigate(['/cuestionario-consulta']);
