@@ -68,14 +68,9 @@ public class Controlador {
     }
     
     @GetMapping("arduino/temp")
-    public int getAuth(){
-        
+    public double getAuth(){
         Temperatura temperatura = new Temperatura(); 
-        
-        return temperatura.obtenerTemperatura(); // Llama a validarInicioSesion
-        
-        // Maneja el resultado de la validación según lo que retorne la función
-        
+        return temperatura.obtenerTemperatura();
     }
 
 }

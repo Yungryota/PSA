@@ -4,15 +4,16 @@ import com.itsalutenzen.demo.subsistemas.ConexionPuertoSerial;
 
 public class Temperatura {
 
+    private ConexionPuertoSerial conexionPuerto;
 
-    public int temp;
+    public Temperatura() {
+        conexionPuerto = new ConexionPuertoSerial();
+        conexionPuerto.abrirPuerto();
+        conexionPuerto.startReading(); // Comienza la lectura
+    }
 
-
-    
-    public int obtenerTemperatura() {
-        ConexionPuertoSerial conexionPuerto = new ConexionPuertoSerial(); // Crear una nueva instancia de ConexionPuertoSerial
-        conexionPuerto.abrirPuerto(); // Abre el puerto serial
-        temp = conexionPuerto.startReading();
-        return temp;  // Por ejemplo, retorna 0 en caso de error o cuando los datos están vacíos
+    public double obtenerTemperatura() {
+        System.out.println("temp:" + conexionPuerto.getTemperatura());
+        return conexionPuerto.getTemperatura();
     }
 }

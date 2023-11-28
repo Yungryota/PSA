@@ -30,7 +30,7 @@ import java.io.IOException;
 
 public class PsaApplication {
     
-    
+        public int temp;
        
        public static void main( String[] args ) throws IOException, InterruptedException, Exception
        {
@@ -44,9 +44,12 @@ public class PsaApplication {
 
            
            System.out.println(new File("").getAbsolutePath());
-        Temperatura sensorTemperatura = new Temperatura();
+           Temperatura sensorTemperatura = new Temperatura();
+           
+           sensorTemperatura.obtenerTemperatura();
 
-
+           
+           
        }
        
 
