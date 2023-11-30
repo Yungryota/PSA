@@ -2,18 +2,23 @@ package com.itsalutenzen.demo.clases;
 
 import com.itsalutenzen.demo.subsistemas.ConexionPuertoSerial;
 
-public class Temperatura {
+import java.util.concurrent.CompletableFuture;
 
+public class Temperatura {
     private ConexionPuertoSerial conexionPuerto;
 
     public Temperatura() {
         conexionPuerto = new ConexionPuertoSerial();
         conexionPuerto.abrirPuerto();
-        conexionPuerto.startReading(); // Comienza la lectura
+        // No es necesario iniciar la lectura aquí, se hará cuando se solicite explícitamente
     }
 
-    public double obtenerTemperatura() {
-        System.out.println("temp:" + conexionPuerto.getTemperatura());
-        return conexionPuerto.getTemperatura();
+    public CompletableFuture<Double> obtenerTemperaturaAsync() {
+        CompletableFuture<Double> temperaturaFuture = conexionPuerto.startReading();
+
+        return temperaturaFuture.thenApply(temperatura -> {
+            System.out.println("Temperatura actual: " + temperatura);
+            return temperatura;
+        });
     }
 }

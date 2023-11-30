@@ -24,6 +24,9 @@ import jssc.SerialPort;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.CompletableFuture;
+
 
 /**
  *
@@ -33,14 +36,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
+//Puerto original con maximo de peticiones 9600
 @CrossOrigin(origins = "http://localhost:4200/", maxAge = 9600)
-
+//Ruta raiz
 @RequestMapping({"/psa"})
 @RestController
 public class Controlador {
 
-
+ 
     @GetMapping("/{rut}") //RUTA http://localhost:8080/psa/{rut} /LLAMA USUARIO Y EJECUTA LA FUNCION DE VALIDAR INICIO DE 
     //SESIÓN ATRAVEZ DEL RUT
     public Usuario getAuth(@PathVariable String rut){
@@ -68,9 +71,10 @@ public class Controlador {
     }
     
     @GetMapping("arduino/temp")
-    public double getAuth(){
-        Temperatura temperatura = new Temperatura(); 
-        return temperatura.obtenerTemperatura();
+    public double getAuth() throws ExecutionException, InterruptedException {
+        Temperatura temperatura = new Temperatura();
+        CompletableFuture<Double> temperaturaFuture = temperatura.obtenerTemperaturaAsync();
+        return temperaturaFuture.get();
     }
 
 }
