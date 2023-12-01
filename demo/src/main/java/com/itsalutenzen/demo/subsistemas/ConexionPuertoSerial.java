@@ -1,12 +1,19 @@
 package com.itsalutenzen.demo.subsistemas;
 
 import jssc.SerialPort;
+import jssc.SerialPortEvent;
 import jssc.SerialPortException;
+import jssc.SerialPortEventListener;
+import java.util.concurrent.CompletableFuture;
+
 
 public class ConexionPuertoSerial {
     private SerialPort puertoSerie;
-    private String puertoSerial = "COM1"; // Definición del puerto por defecto
+    private String puertoSerial = "COM4"; // Definición del puerto por defecto
+    private double temperatura;//define variable
 
+    
+    
     public ConexionPuertoSerial() {
         this.puertoSerie = new SerialPort(this.puertoSerial);
     }
@@ -20,20 +27,47 @@ public class ConexionPuertoSerial {
                 SerialPort.STOPBITS_1,
                 SerialPort.PARITY_NONE
             );
+            System.out.println("PUERTO ABIERTO ");
         } catch (SerialPortException ex) {
             System.out.println("Error al abrir el puerto: " + ex.getMessage());
         }
     }
 
-    public String leerDatos() {
-        String datosRecibidos = "";
+    public CompletableFuture<Double> startReading() {
+        CompletableFuture<Double> future = new CompletableFuture<>();
+
         try {
-            datosRecibidos = puertoSerie.readString();
+            puertoSerie.addEventListener(new SerialPortEventListener() {
+                @Override
+                public void serialEvent(SerialPortEvent event) {
+                    if (event.isRXCHAR() && event.getEventValue() > 0) {
+                        try {
+                            String receivedData = puertoSerie.readString(event.getEventValue());
+                            if (receivedData != null && !receivedData.isEmpty()) {
+                                temperatura = Double.parseDouble(receivedData.trim());
+                                //System.out.println("Temperatura leída: " + temperatura);
+                                future.complete(temperatura); // Completa el futuro con la temperatura leída
+                            }
+                        } catch (SerialPortException | NumberFormatException ex) {
+                            future.completeExceptionally(ex); // Completa el futuro con una excepción si ocurre un error
+                        }
+                    }
+                }
+            });
         } catch (SerialPortException ex) {
-            System.out.println("Error al leer del puerto: " + ex.getMessage());
+            future.completeExceptionally(ex); // Completa el futuro con una excepción si ocurre un error al abrir el puerto serie
         }
-        return datosRecibidos;
+
+        return future;
     }
+
+
+    public double getTemperatura() {
+        return temperatura; //nunca muestra temeraatura real, quead como 0.0
+    }
+
+
+
 
     public void cerrarPuerto() {
         try {

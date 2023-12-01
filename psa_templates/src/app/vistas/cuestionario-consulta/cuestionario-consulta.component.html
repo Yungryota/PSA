@@ -16,7 +16,7 @@
           </div>
           
 
-          <div class="pregunta" style="">2. Indique su sexo<br /></div>
+          <div class="pregunta">2. Indique su sexo<br /></div>
           <div class="respuestas">
             <input type="radio" name="preg2" (click)="guardarPreguntas('Femenino')"/> Femenino<br />
             <input type="radio" name="preg2" (click)="guardarPreguntas('Masculino')"/> Masculino<br />
@@ -95,8 +95,12 @@
           </div>
 
         </div>
-    </div>
 
+        <button (click)="guardarConsulta()">Avanzar</button><!--R10 - paso 1: pulsa boton continuar -->
+
+
+    </div>
+    
     
 
 </div>

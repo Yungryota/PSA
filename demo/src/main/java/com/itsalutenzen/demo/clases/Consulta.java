@@ -8,13 +8,14 @@ package com.itsalutenzen.demo.clases;
  *
  * @author Javiera
  */
-
+// delega las tareas a la clase temperatura 
 // Dar vuelta la flecha de diamante en el diagrama de clases !!!!!!!!!!!!!!!!!!!!!!!!! --> IMPORTANTE RECORDAR
 public class Consulta{ //Actulizar en diagrama de clases
     public String estadoConsulta; 
     public String ResultadoConsulta; // Representar en diagrama de clases
     public String diagnosticoPaciente;
     private Resenia resenia;
+    //colaboracion con clase temperatura 
 
     public Consulta(String estadoConsulta, String ResultadoConsulta, String diagnosticoPaciente, Resenia resenia) {
         this.estadoConsulta = estadoConsulta;
@@ -63,4 +64,5 @@ public class Consulta{ //Actulizar en diagrama de clases
         }
     }
     
+    //obtener temperatura
 }

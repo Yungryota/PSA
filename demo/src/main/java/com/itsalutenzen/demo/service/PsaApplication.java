@@ -22,6 +22,8 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.ComponentScan;
 import com.itsalutenzen.demo.subsistemas.AppConfigSql;
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 
@@ -30,7 +32,7 @@ import java.io.IOException;
 
 public class PsaApplication {
     
-    
+        public int temp;
        
        public static void main( String[] args ) throws IOException, InterruptedException, Exception
        {
@@ -44,8 +46,20 @@ public class PsaApplication {
 
            
            System.out.println(new File("").getAbsolutePath());
-        Temperatura sensorTemperatura = new Temperatura();
+           Temperatura sensorTemperatura = new Temperatura();
+           
+           sensorTemperatura.obtenerTemperaturaAsync();
+           
+           ConexionPuertoSerial conexion = new ConexionPuertoSerial();
+           conexion.abrirPuerto();
+            
+            CompletableFuture<Double> temperaturaFuture = sensorTemperatura.obtenerTemperaturaAsync();
 
+            temperaturaFuture.thenAccept(temperatura -> {
+                System.out.println("Temperatura obtenida: " + temperatura);
+            });
+           
+           
        }
        
 
