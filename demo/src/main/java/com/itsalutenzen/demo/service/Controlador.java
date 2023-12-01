@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.itsalutenzen.demo.clases.Usuario;
+import com.itsalutenzen.demo.clases.Consulta;
+import com.itsalutenzen.demo.clases.Resenia;
 import com.itsalutenzen.demo.clases.Temperatura;
 import com.itsalutenzen.demo.subsistemas.AppConfigSql;
 
@@ -76,5 +78,14 @@ public class Controlador {
         CompletableFuture<Double> temperaturaFuture = temperatura.obtenerTemperaturaAsync();
         return temperaturaFuture.get();
     }
+    
+    public String obtenerRespuestasCuestionario(@PathVariable String respuestas){////R10 - paso 5: Recibe datos
+        String registroRespuestas = respuestas;
+        
+        Resenia resenia = new Resenia("muy bueno", 1);
+        Consulta consulta = new Consulta( "completada",  registroRespuestas,  "",  resenia);
+        return registroRespuestas;
+    }
+    
 
 }
