@@ -42,18 +42,16 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}/psa/arduino`);
   }
 
-  enviarCategoriaUsuario(categoriaUsuario: string): Observable<any> { // POST para enviar
-    const data = { categoriaUsuario }; 
-    return this.http.post<any>(`${this.apiUrl}/psa/enviarCategoriaUsuario`, data);
-    console.log('POST enviado')
-  }
-
   recibirTemperatura() {
     return this.http.get(`${this.apiUrl}/psa/arduino/temp`);
   }
 
   enviarConsultaPaciente(respuesta: String): Observable<Consulta> {//DA_RF1 - PASO 5: SOLICITA DATOS
     return this.http.get<Consulta>(`${this.apiUrl}/psa/${respuesta}`);
+  }
+
+  enviarCategoriaUsuario(categoria: string,): Observable<Usuario> {//DA_RF1 - PASO 5: SOLICITA DATOS
+    return this.http.get<Usuario>(`${this.apiUrl}/psa/${categoria}`);
   }
 
 

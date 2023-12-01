@@ -20,6 +20,7 @@ import com.itsalutenzen.demo.clases.Usuario;
 import com.itsalutenzen.demo.clases.Consulta;
 import com.itsalutenzen.demo.clases.Resenia;
 import com.itsalutenzen.demo.clases.Temperatura;
+import com.itsalutenzen.demo.clases.Paciente;
 import com.itsalutenzen.demo.subsistemas.AppConfigSql;
 
 import jssc.SerialPort;
@@ -79,12 +80,22 @@ public class Controlador {
         return temperaturaFuture.get();
     }
     
-    public String obtenerRespuestasCuestionario(@PathVariable String respuestas){////R10 - paso 5: Recibe datos
-        String registroRespuestas = respuestas;
+    @GetMapping("/{respuesta}")
+    public String obtenerRespuestasCuestionario(@PathVariable String respuesta){////R10 - paso 5: Recibe datos
+        String registroRespuestas = respuesta;
         
         Resenia resenia = new Resenia("muy bueno", 1);
         Consulta consulta = new Consulta( "completada",  registroRespuestas,  "",  resenia);
         return registroRespuestas;
+    }
+    
+    @GetMapping("/{categoria}")
+    public String obtenerCategoriaUsuario(@PathVariable String categoria){
+        String resultadoCategoria = categoria;
+        
+        Paciente paciente = new Paciente(resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
+        
+        return resultadoCategoria;
     }
     
 
