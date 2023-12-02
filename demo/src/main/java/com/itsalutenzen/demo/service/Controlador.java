@@ -74,10 +74,10 @@ public class Controlador {
     }
     
     @GetMapping("arduino/temp")
-    public double getTemp() throws ExecutionException, InterruptedException {
+    public double getTemp() throws ExecutionException, InterruptedException { //RF12 - Paso 6: Llama a servicio getTemp
         Temperatura temperatura = new Temperatura();
         CompletableFuture<Double> temperaturaFuture = temperatura.obtenerTemperaturaAsync();
-        return temperaturaFuture.get();
+        return temperaturaFuture.get(); //RF12 - Paso 9: Devuelve temperatura
     }
     
         @GetMapping("respuesta/{respuesta}")

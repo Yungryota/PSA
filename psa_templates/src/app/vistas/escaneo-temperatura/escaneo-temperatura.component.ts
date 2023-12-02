@@ -15,22 +15,19 @@ export class EscaneoTemperaturaComponent {
 
   constructor(private service: ServiceService, private router: Router){}
 
-  escanearTemperatura() {
-    // Suscripción al Observable
-    this.service.recibirTemperatura().subscribe(
+  //Función que recibe la temperatura desde spring
+  escanearTemperatura() { //RF12 - Paso 3: Crea  solicitud
+    this.service.recibirTemperatura().subscribe(//RF12 - Paso 4: Inicia función recibir temperatura
       (data: any) => {
-        console.log(data); // Aquí recibes los datos del servidor
-        // Llama a funciones que obtienen la temperatura
+        console.log(data); 
         //this.obtenerTemperaturaPaciente();// imprime temp
         this.temperaturaPaciente = data;
       },
       (error: any) => {
-        console.error(error); // Manejo de errores si ocurre alguno
+        console.error(error); 
       }
     );
   }
-  
-
 
   enviarTemperatura(){
     this.router.navigate(['/cuestionario-consulta']);
