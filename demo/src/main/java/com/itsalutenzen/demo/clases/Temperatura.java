@@ -15,10 +15,12 @@ public class Temperatura {
 
     public CompletableFuture<Double> obtenerTemperaturaAsync() {
         CompletableFuture<Double> temperaturaFuture = conexionPuerto.startReading();
-
+        
         return temperaturaFuture.thenApply(temperatura -> {
             System.out.println("Temperatura actual: " + temperatura);
+            conexionPuerto.cerrarPuerto();
             return temperatura;
         });
+        
     }
 }

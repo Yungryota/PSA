@@ -9,7 +9,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ConexionPuertoSerial {
     private SerialPort puertoSerie;
-    private String puertoSerial = "COM4"; // Definición del puerto por defecto
+    private String puertoSerial = "COM5"; // Definición del puerto por defecto
     private double temperatura;//define variable
 
     

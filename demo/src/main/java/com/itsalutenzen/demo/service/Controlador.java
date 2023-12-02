@@ -47,7 +47,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controlador {
 
  
-    @GetMapping("/{rut}") //RUTA http://localhost:8080/psa/{rut} /LLAMA USUARIO Y EJECUTA LA FUNCION DE VALIDAR INICIO DE 
+    @GetMapping("rut/{rut}") //RUTA http://localhost:8080/psa/{rut} /LLAMA USUARIO Y EJECUTA LA FUNCION DE VALIDAR INICIO DE 
     //SESIÓN ATRAVEZ DEL RUT
     public Usuario getAuth(@PathVariable String rut){
         
@@ -74,27 +74,29 @@ public class Controlador {
     }
     
     @GetMapping("arduino/temp")
-    public double getAuth() throws ExecutionException, InterruptedException {
+    public double getTemp() throws ExecutionException, InterruptedException {
         Temperatura temperatura = new Temperatura();
         CompletableFuture<Double> temperaturaFuture = temperatura.obtenerTemperaturaAsync();
         return temperaturaFuture.get();
     }
     
-    @GetMapping("/{respuesta}")
+        @GetMapping("respuesta/{respuesta}")
     public String obtenerRespuestasCuestionario(@PathVariable String respuesta){////R10 - paso 5: Recibe datos
         String registroRespuestas = respuesta;
         
         Resenia resenia = new Resenia("muy bueno", 1);
         Consulta consulta = new Consulta( "completada",  registroRespuestas,  "",  resenia);
+            System.out.println(resenia + "\n" + consulta);
         return registroRespuestas;
     }
+
     
-    @GetMapping("/{categoria}")
+    @GetMapping("categoria/{categoria}")
     public String obtenerCategoriaUsuario(@PathVariable String categoria){
         String resultadoCategoria = categoria;
         
         Paciente paciente = new Paciente(resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
-        
+        System.out.println(paciente);
         return resultadoCategoria;
     }
     

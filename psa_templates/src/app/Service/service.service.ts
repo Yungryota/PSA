@@ -27,7 +27,7 @@ export class ServiceService {
   }
 
   buscarUsuarioPorRut(rut: string): Observable<Usuario> {//DA_RF1 - PASO 5: SOLICITA DATOS
-    return this.http.get<Usuario>(`${this.apiUrl}/psa/${rut}`);
+    return this.http.get<Usuario>(`${this.apiUrl}/psa/rut/${rut}`);
     
   }
 
@@ -47,11 +47,11 @@ export class ServiceService {
   }
 
   enviarConsultaPaciente(respuesta: String): Observable<Consulta> {//DA_RF1 - PASO 5: SOLICITA DATOS
-    return this.http.get<Consulta>(`${this.apiUrl}/psa/${respuesta}`);
+    return this.http.get<Consulta>(`${this.apiUrl}/psa/respuesta/${respuesta}`);
   }
 
   enviarCategoriaUsuario(categoria: string,): Observable<Usuario> {//DA_RF1 - PASO 5: SOLICITA DATOS
-    return this.http.get<Usuario>(`${this.apiUrl}/psa/${categoria}`);
+    return this.http.get<Usuario>(`${this.apiUrl}/psa/categoria/${categoria}`);
   }
 
 
