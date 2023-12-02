@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./resultado-consulta.component.css']
 })
 export class ResultadoConsultaComponent {
+  emailUsuario: String = 'ejemplo@email.cl';
+
 
 }
