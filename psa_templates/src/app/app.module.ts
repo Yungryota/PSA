@@ -15,6 +15,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { EscaneoTemperaturaComponent } from './vistas/escaneo-temperatura/escaneo-temperatura.component';
 import { CuestionarioConsultaComponent } from './vistas/cuestionario-consulta/cuestionario-consulta.component';
 import { ResultadoConsultaComponent } from './vistas/resultado-consulta/resultado-consulta.component';
+import { ReservaCitaMedicaComponent } from './vistas/reserva-cita-medica/reserva-cita-medica.component';
 
 
 
@@ -27,7 +28,8 @@ import { ResultadoConsultaComponent } from './vistas/resultado-consulta/resultad
     CategorizacionPacienteComponent,
     EscaneoTemperaturaComponent,
     CuestionarioConsultaComponent,
-    ResultadoConsultaComponent
+    ResultadoConsultaComponent,
+    ReservaCitaMedicaComponent
   ],
   imports: [
     BrowserModule,

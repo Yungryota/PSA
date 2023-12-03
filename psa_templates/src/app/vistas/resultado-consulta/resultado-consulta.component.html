@@ -25,8 +25,14 @@
                 <li>lorem ipsum</li>
                 <li>lorem ipsum</li>
             </ul>
-            <h1 class="centered-content text">Los resultados serán evaluados y llegarán a su correo:</h1>
-            <h1>{{emailUsuario}}</h1>
+            <form>
+                <h2 class="centered-content text">Introduce tu correo electrónico</h2>
+                <input type="email" [(ngModel)]="emailUsuario"  name="emailUsuario" placeholder="ejemplo@email.cl" class="form-control">
+                <button (click)="guardarMail()" class="button-enviar">Enviar mail</button>
+                <h1 class="centered-content text">Los resultados serán evaluados y llegarán a su correo:</h1>
+                <h1>{{ emailUsuario }}</h1>
+              </form>
+
             <div class="button-content">
                 <button>Reservar cita médica</button>
                 <button (click)="finalizarConsulta()">Finalizar consulta</button>

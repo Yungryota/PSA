@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../Model/Usuario';
 import { Consulta } from '../Model/Consulta';
 import { Observable } from 'rxjs';
+import * as Notiflix from 'notiflix';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ServiceService {
 
   private apiUrl = 'http://localhost:8080'; // Reemplaza con la URL de tu servidor API
+  private emailUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
@@ -55,6 +57,30 @@ export class ServiceService {
     return this.http.get<Usuario>(`${this.apiUrl}/psa/categoria/${categoria}`);
   }
 
+  //servicio envio correo electronico con los sintomas del paciente al medico 
+  enviarCorreoSintomasPaciente(emailMedico : String, emailUsuario : String, asunto : String, sintomasConsulta : String, categoriaPaciente : String){
+    Notiflix.Loading.standard('Enviando email')
 
+    let parametros = {
+      pEmailMedico : emailMedico,
+      pEmailUsuario : emailUsuario,
+      pAsunto : asunto,
+      pSintomasCon : sintomasConsulta,
+      pCategoriaPaciente : categoriaPaciente
+    }
+
+    console.log(parametros)
+
+    this.http.post('http://localhost:3000/envio', parametros).subscribe(resp=>{
+      console.log(resp)
+      Notiflix.Notify.success('Email enviado correctamente')
+
+    },
+      err => Notiflix.Notify.failure('No se ha podido enviar el email')
+    )
+
+    Notiflix.Loading.remove()
+
+  }
   
 }
