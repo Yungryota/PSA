@@ -58,15 +58,14 @@ export class ServiceService {
   }
 
   //servicio envio correo electronico con los sintomas del paciente al medico 
-  enviarCorreoSintomasPaciente(emailMedico : String, emailUsuario : String, asunto : String, sintomasConsulta : String, categoriaPaciente : String){
+  enviarCorreoSintomasPaciente(emailUsuario : String, asunto : String, sintomasConsulta : String, categoriaPaciente : String){
     Notiflix.Loading.standard('Enviando email')
 
     let parametros = {
-      pEmailMedico : emailMedico,
-      pEmailUsuario : emailUsuario,
-      pAsunto : asunto,
-      pSintomasCon : sintomasConsulta,
-      pCategoriaPaciente : categoriaPaciente
+      asunto: asunto,
+      email: emailUsuario,
+      mensaje: sintomasConsulta,
+      categoria: categoriaPaciente,
     }
 
     console.log(parametros)

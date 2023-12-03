@@ -11,7 +11,6 @@ import * as Notiflix from 'notiflix';
 })
 export class ResultadoConsultaComponent {
   emailUsuario : String = '';
-  emailMedico : String = 'ja.espinam@duocuc.cl';
   asunto : String = 'Estimado doctor, se adjuntan síntomas del paciente esperando respuesta con posible diagnóstico y receta médica'
   sintomasConsulta: String = 'Ta enfelmo';
   categoriaPaciente: String = 'C4';
@@ -21,7 +20,7 @@ export class ResultadoConsultaComponent {
 
   //Funcion crea solicitud para enviar por parametros un mail al medico
   guardarMail() {
-    this.service.enviarCorreoSintomasPaciente(this.emailMedico, this.emailUsuario,this.asunto,this.sintomasConsulta,this.categoriaPaciente)
+    this.service.enviarCorreoSintomasPaciente(this.emailUsuario,this.asunto,this.sintomasConsulta,this.categoriaPaciente)
 
     console.log('Correo guardado:', this.emailUsuario);
   }
