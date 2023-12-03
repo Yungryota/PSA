@@ -16,15 +16,7 @@
 
     <!--DA_RF1 - PASO 1: DESPLIEGA VISTA LOGIN -->
     <div class="main-content">
-      <div class="admin-access">
-        <button (click)="goView()"class="btn btn-admin-access">
-          <img src="../../assets/img/database.svg">
-        </button>
-      </div>
-      <div class="arduino">
-        <button type="button" class="enviar-btn" (click)="encenderLed()">Encender</button> <!--2: Pulsa ok-->
-        <button type="button" class="enviar-btn" (click)="apagarLed()">Apagar</button> <!--2: Pulsa ok-->
-      </div>
+
       <div class="centered-content">
         <p>Ingrese su rut para iniciar</p> 
         <input type="text" placeholder="Ej: 11.222.333-4" class="rut-input" [(ngModel)]="rutABuscar"><!--DA_RF1 - PASO 2: LLENA CAMPOS-->
