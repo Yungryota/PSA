@@ -65,13 +65,7 @@ public class Controlador {
         }
     }
     
-    @GetMapping("arduino/encender")
-    
-    @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/psa/enviarCategoriaPaciente") // hacer el post mapping en 
-    public void recibirCategoriaPaciente(@RequestBody String categoriaPaciente) {
-        System.out.println("Categoría del paciente recibida: " + categoriaPaciente);
-    }
+
     
     @GetMapping("arduino/temp")
     public double getTemp() throws ExecutionException, InterruptedException { //RF12 - Paso 6: Llama a servicio getTemp
@@ -79,16 +73,18 @@ public class Controlador {
         CompletableFuture<Double> temperaturaFuture = temperatura.obtenerTemperaturaAsync();
         return temperaturaFuture.get(); //RF12 - Paso 9: Devuelve temperatura
     }
-    
-        @GetMapping("respuesta/{respuesta}")
-    public String obtenerRespuestasCuestionario(@PathVariable String respuesta){////R10 - paso 5: Recibe datos
-        String registroRespuestas = respuesta;
-        
+
+    @PostMapping("/respuesta/{respuesta}")
+    public String[] obtenerRespuestasCuestionario(@RequestBody String[] respuesta) {
+        String[] registroRespuestas = respuesta;
+
         Resenia resenia = new Resenia("muy bueno", 1);
-        Consulta consulta = new Consulta( "completada",  registroRespuestas,  "",  resenia);
-            System.out.println(resenia + "\n" + consulta);
+        Consulta consulta = new Consulta("completada", registroRespuestas, "", resenia);
+        System.out.println(resenia + "\n" + consulta);
+
         return registroRespuestas;
     }
+
 
     
     @GetMapping("categoria/{categoria}")
@@ -97,8 +93,8 @@ public class Controlador {
         
         Paciente paciente = new Paciente(resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
         System.out.println(paciente);
-        return resultadoCategoria;
+        return "Categoria del paciente recibida: " + resultadoCategoria;
     }
     
 
-}
+} 

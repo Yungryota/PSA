@@ -12,15 +12,30 @@ public class Paciente extends Usuario{
     public String categorizacionPaciente;
     public String recetaPaciente;
 
-    public Paciente(String rut, String nombre, int num_doc, int edad, String contacto) {
-        super(rut, nombre, num_doc, edad, contacto);
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "categorizacionPaciente='" + categorizacionPaciente + '\'' +
+                ", recetaPaciente='" + recetaPaciente + '\'' +
+                ", rut='" + getRut() + '\'' +
+                ", nombre='" + getNombre() + '\'' +
+                ", num_doc=" + getNum_doc() +
+                ", edad=" + getEdad() +
+                ", contacto='" + getContacto() + '\'' +
+                '}';
     }
-    
+
 
     public Paciente(String categorizacionPaciente, String recetaPaciente, String rut, String nombre, int num_doc, int edad, String contacto) {
         super(rut, nombre, num_doc, edad, contacto);
         this.categorizacionPaciente = categorizacionPaciente;
         this.recetaPaciente = recetaPaciente;
+    }
+    
+
+    public Paciente(String rut, String nombre, int num_doc, int edad, String contacto) {
+        super(rut, nombre, num_doc, edad, contacto);
+
     }
 
     public String getCategorizacionPaciente() {

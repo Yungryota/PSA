@@ -28,9 +28,18 @@ export class CuestionarioConsultaComponent {
 
   guardarConsulta(){ //R10 - paso 3: guarda datos consulta
     //sweetalert carga
-    this.enviarRespuestas = this.respuesta.toString()
-    this.service.enviarConsultaPaciente(this.enviarRespuestas)//R10 - paso 4: solicitud servicio
-    console.log('Respuestas paciente: ',this.enviarRespuestas)//R10 - paso 6: Registro evento por consola
+    
+    this.service.enviarConsultaPaciente(this.respuesta)//R10 - paso 4: solicitud servicio
+
+
+
+
+
+
+
+
+    
+    console.log('Respuestas paciente: ',this.respuesta)//R10 - paso 6: Registro evento por consola
     //R10 - paso 7: Mensaje exito
     this.router.navigate(['/resultado-consulta']);//R10 - paso 8: Redirige vista
   }

@@ -49,8 +49,9 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}/psa/arduino/temp`);
   }
 
-  enviarConsultaPaciente(respuesta: String): Observable<Consulta> {//DA_RF1 - PASO 5: SOLICITA DATOS
-    return this.http.get<Consulta>(`${this.apiUrl}/psa/respuesta/${respuesta}`);
+  enviarConsultaPaciente(respuesta: string[]): Observable<Consulta> {
+    console.log("RECIBIDO EN EL SERVICIO : ", respuesta);
+    return this.http.post<Consulta>(`${this.apiUrl}/psa/respuesta`, { respuestas: respuesta });
   }
 
   enviarCategoriaUsuario(categoria: string,): Observable<Usuario> {//DA_RF1 - PASO 5: SOLICITA DATOS

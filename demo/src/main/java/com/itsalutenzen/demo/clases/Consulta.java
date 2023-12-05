@@ -12,12 +12,12 @@ package com.itsalutenzen.demo.clases;
 // Dar vuelta la flecha de diamante en el diagrama de clases !!!!!!!!!!!!!!!!!!!!!!!!! --> IMPORTANTE RECORDAR
 public class Consulta{ //Actulizar en diagrama de clases
     public String estadoConsulta; 
-    public String ResultadoConsulta; // Representar en diagrama de clases
+    public String[] ResultadoConsulta; // Representar en diagrama de clases
     public String diagnosticoPaciente;
     private Resenia resenia;
     //colaboracion con clase temperatura 
 
-    public Consulta(String estadoConsulta, String ResultadoConsulta, String diagnosticoPaciente, Resenia resenia) {
+    public Consulta(String estadoConsulta, String[] ResultadoConsulta, String diagnosticoPaciente, Resenia resenia) {
         this.estadoConsulta = estadoConsulta;
         this.ResultadoConsulta = ResultadoConsulta;
         this.diagnosticoPaciente = diagnosticoPaciente;
@@ -28,7 +28,7 @@ public class Consulta{ //Actulizar en diagrama de clases
         return estadoConsulta;
     }
 
-    public String getResultadoConsulta() {
+    public String[] getResultadoConsulta() {
         return ResultadoConsulta;
     }
 
@@ -44,7 +44,7 @@ public class Consulta{ //Actulizar en diagrama de clases
         this.estadoConsulta = estadoConsulta;
     }
 
-    public void setResultadoConsulta(String ResultadoConsulta) {
+    public void setResultadoConsulta(String[] ResultadoConsulta) {
         this.ResultadoConsulta = ResultadoConsulta;
     }
 
