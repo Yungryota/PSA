@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
-
+import Swal from 'sweetalert2'
 
 
 @Component({
   selector: 'app-categorizacion-paciente',
   templateUrl: './categorizacion-paciente.component.html',
   styleUrls: ['./categorizacion-paciente.component.css'],
-  
+
 })
 export class CategorizacionPacienteComponent {
   respuestas: { [key: string]: boolean | number } = {
@@ -20,11 +20,11 @@ export class CategorizacionPacienteComponent {
     'Tiempo de los síntomas': 0
   };
 
-  nivelPrioridad: number = 5; 
+  nivelPrioridad: number = 5;
   categoriaPaciente: string = ' ';
 
-  constructor(private router: Router, private service: ServiceService) {}
-  
+  constructor(private router: Router, private service: ServiceService) { }
+
 
   evaluaDolorPaciente() {
     if (this.respuestas['Experimenta dolor'] == true) {
@@ -56,7 +56,7 @@ export class CategorizacionPacienteComponent {
     if (this.respuestas['Cambios en la conciencia'] == true) {
       this.nivelPrioridad = 2;
     } else {
-      this.nivelPrioridad  = this.nivelPrioridad
+      this.nivelPrioridad = this.nivelPrioridad
     }
     console.log(`El paciente ha sido categorizado como nivel de prioridad: ${this.nivelPrioridad}`);
   }
@@ -65,16 +65,16 @@ export class CategorizacionPacienteComponent {
     if (this.respuestas['comportamiento anormal'] == true) {
       this.nivelPrioridad = 3;
     } else {
-      this.nivelPrioridad  = this.nivelPrioridad
+      this.nivelPrioridad = this.nivelPrioridad
     }
     console.log(`El paciente ha sido categorizado como nivel de prioridad: ${this.nivelPrioridad}`);
   }
- 
+
   evaluaSituacionCatastrofe() { // Pregunta 4
     if (this.respuestas['situacion catastrofe'] == true) {
       this.nivelPrioridad = 3;
     } else {
-      this.nivelPrioridad  = this.nivelPrioridad
+      this.nivelPrioridad = this.nivelPrioridad
     }
     console.log(`El paciente ha sido categorizado como nivel de prioridad: ${this.nivelPrioridad}`);
   }
@@ -88,7 +88,7 @@ export class CategorizacionPacienteComponent {
     } else {
       this.nivelPrioridad = 1;
     }
-    
+
     console.log(`El paciente ha sido categorizado como nivel de prioridad: ${this.nivelPrioridad}`);
   }
 
@@ -115,31 +115,65 @@ export class CategorizacionPacienteComponent {
   categorizacionPaciente() { // Categoriza al paciente segun su nivel de prioridad
     console.log(`PRIORIDAD PACIENTE: ${this.nivelPrioridad}`);
 
-    if (this.nivelPrioridad == 1){
+    if (this.nivelPrioridad == 1) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Usted es C1',
+        text: 'Debera  dirigirse a mesón ya que PSA no puede cubrir su caso.',
+        footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+      })
+
       this.categoriaPaciente = 'C1';
       this.router.navigate(["/login-psa"])
-     console.log('categoria: ', this.categoriaPaciente)
-     prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
+      console.log('categoria: ', this.categoriaPaciente)
+
     } else if (this.nivelPrioridad == 2) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Usted es C2',
+        text: 'Debera  dirigirse a mesón ya que PSA no puede cubrir su caso.',
+        footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+      })
+
       this.categoriaPaciente = 'C2';
       this.router.navigate(["/login-psa"])
-     console.log('categoria: ', this.categoriaPaciente)
-     prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
+      console.log('categoria: ', this.categoriaPaciente)
+     
     } else if (this.nivelPrioridad == 3) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Usted es C3',
+        text: 'Debera  dirigirse a mesón ya que PSA no puede cubrir su caso.',
+        footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+      })
       this.categoriaPaciente = 'C3';
       this.router.navigate(["/login-psa"])
-     console.log('categoria: ', this.categoriaPaciente)
-     prompt("Usted ha sido categorizado como C3, debe  dirigirse a mesón ya que PSA no puede cubrir su caso");
+      console.log('categoria: ', this.categoriaPaciente)
+
     } else if (this.nivelPrioridad == 4) {
+      //Si es C4
+      Swal.fire({
+        icon: 'success',
+        title: 'Usted es C4',
+        text: 'Presione OK, para continuar con la encuesta.',
+        footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+      })
       this.categoriaPaciente = 'C4';
       this.router.navigate(["/escaneo-temperatura"])
-     console.log('categoria: ', this.categoriaPaciente)
-     prompt("Usted ha sido categorizado como C4 y será refirigido para continuar con su evaluación");
+      console.log('categoria: ', this.categoriaPaciente)
+
     } else if (this.nivelPrioridad == 5) {
+      //Si es C5
+      Swal.fire({
+        icon: 'success',
+        title: 'Usted es C5',
+        text: 'Presione OK, para continuar con la encuesta.',
+        footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+      })
       this.categoriaPaciente = 'C5';
       this.router.navigate(["/escaneo-temperatura"])
       console.log('categoria: ', this.categoriaPaciente)
-      prompt("Usted ha sido categorizado como C5 y será refirigido para continuar con su evaluación");
+
     } else {
       prompt("Conteste el cuestionario para continuar");
     }
@@ -149,6 +183,6 @@ export class CategorizacionPacienteComponent {
   }
 
 
-  
+
 
 }
