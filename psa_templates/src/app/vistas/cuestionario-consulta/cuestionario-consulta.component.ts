@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cuestionario-consulta',
@@ -31,7 +31,6 @@ export class CuestionarioConsultaComponent {
   guardarConsulta() { //R10 - paso 3: guarda datos consulta
 
     //sweetalert carga
-<<<<<<< Updated upstream
     
     this.service.enviarConsultaPaciente(this.respuesta)//R10 - paso 4: solicitud servicio
 
@@ -44,7 +43,6 @@ export class CuestionarioConsultaComponent {
 
     
     console.log('Respuestas paciente: ',this.respuesta)//R10 - paso 6: Registro evento por consola
-=======
     Swal.fire({
       didOpen: () => {
         Swal.showLoading();
@@ -57,9 +55,8 @@ export class CuestionarioConsultaComponent {
     
 
     this.enviarRespuestas = this.respuesta.toString()
-    this.service.enviarConsultaPaciente(this.enviarRespuestas)//R10 - paso 4: solicitud servicio
+    this.service.enviarConsultaPaciente(this.respuesta)//R10 - paso 4: solicitud servicio
     console.log('Respuestas paciente: ', this.enviarRespuestas)//R10 - paso 6: Registro evento por consola
->>>>>>> Stashed changes
     //R10 - paso 7: Mensaje exito
     this.router.navigate(['/resultado-consulta']);//R10 - paso 8: Redirige vista
   }
