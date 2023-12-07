@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../Model/Usuario';
 import { Consulta } from '../Model/Consulta';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import * as Notiflix from 'notiflix';
 
 @Injectable({
@@ -49,10 +49,18 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}/psa/arduino/temp`);
   }
 
-  enviarConsultaPaciente(respuesta: string[]): Observable<Consulta> {
+  enviarConsultaPaciente(respuesta: String): Observable<Consulta> {
     console.log("RECIBIDO EN EL SERVICIO : ", respuesta);
-    return this.http.post<Consulta>(`${this.apiUrl}/psa/respuesta`, { respuestas: respuesta });
+    
+    return this.http.get<Consulta>(`${this.apiUrl}/psa/respuesta/${respuesta}`)
+      .pipe(
+        catchError(error => {
+          console.error('Error en la solicitud enviarConsultaPaciente:', error);
+          throw error; // Puedes manejar el error de otra manera si es necesario
+        })
+      );
   }
+  
 
   enviarCategoriaUsuario(categoria: string,): Observable<Usuario> {//DA_RF1 - PASO 5: SOLICITA DATOS
     return this.http.get<Usuario>(`${this.apiUrl}/psa/categoria/${categoria}`);

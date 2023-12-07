@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.CompletableFuture;
+import org.springframework.http.ResponseEntity;
 
 
 /**
@@ -45,7 +46,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping({"/psa"})
 @RestController
 public class Controlador {
-
+    public String resultadoCategoria;
  
     @GetMapping("rut/{rut}") //RUTA http://localhost:8080/psa/{rut} /LLAMA USUARIO Y EJECUTA LA FUNCION DE VALIDAR INICIO DE 
     //SESIÓN ATRAVEZ DEL RUT
@@ -74,27 +75,34 @@ public class Controlador {
         return temperaturaFuture.get(); //RF12 - Paso 9: Devuelve temperatura
     }
 
-    @PostMapping("/respuesta/{respuesta}")
-    public String[] obtenerRespuestasCuestionario(@RequestBody String[] respuesta) {
-        String[] registroRespuestas = respuesta;
+    @GetMapping("/respuesta/{respuesta}")
+    public ResponseEntity<Consulta> obtenerRespuestasCuestionario(@PathVariable String respuesta) {
+        String registroRespuestas = "resp";
 
         Resenia resenia = new Resenia("muy bueno", 1);
         Consulta consulta = new Consulta("completada", registroRespuestas, "", resenia);
-        System.out.println(resenia + "\n" + consulta);
+        System.out.println(resenia + "\n" + consulta + "\n" + respuesta);
 
-        return registroRespuestas;
+        return ResponseEntity.ok(consulta);
     }
 
 
     
     @GetMapping("categoria/{categoria}")
     public String obtenerCategoriaUsuario(@PathVariable String categoria){
-        String resultadoCategoria = categoria;
+        this.resultadoCategoria = categoria;
         
-        Paciente paciente = new Paciente(resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
+        Paciente paciente = new Paciente(this.resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
         System.out.println(paciente);
-        return "Categoria del paciente recibida: " + resultadoCategoria;
+        
+        System.out.println(getResultadoCategoria());
+        return this.resultadoCategoria;
     }
+    
+    public String getResultadoCategoria(){
+        return this.resultadoCategoria;
+    }
+    
     
 
 } 

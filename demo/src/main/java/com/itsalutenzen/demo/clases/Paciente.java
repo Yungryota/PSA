@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.itsalutenzen.demo.clases;
+import com.itsalutenzen.demo.service.Controlador;
 
 /**
  *
@@ -11,6 +12,7 @@ package com.itsalutenzen.demo.clases;
 public class Paciente extends Usuario{
     public String categorizacionPaciente;
     public String recetaPaciente;
+    Controlador controlador;
 
     @Override
     public String toString() {
@@ -28,7 +30,7 @@ public class Paciente extends Usuario{
 
     public Paciente(String categorizacionPaciente, String recetaPaciente, String rut, String nombre, int num_doc, int edad, String contacto) {
         super(rut, nombre, num_doc, edad, contacto);
-        this.categorizacionPaciente = categorizacionPaciente;
+        this.categorizacionPaciente = controlador.getResultadoCategoria();
         this.recetaPaciente = recetaPaciente;
     }
     
@@ -54,7 +56,7 @@ public class Paciente extends Usuario{
         this.recetaPaciente = recetaPaciente;
     }
     
-   
+   //Paciente paciente = new Paciente(this.categorizacionPaciente,"amoxcicilina","21323¿4","javie",1234,43,"ja.espinam@duocuc.cl");
     
     
 }
