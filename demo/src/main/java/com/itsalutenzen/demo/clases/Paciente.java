@@ -30,7 +30,7 @@ public class Paciente extends Usuario{
 
     public Paciente(String categorizacionPaciente, String recetaPaciente, String rut, String nombre, int num_doc, int edad, String contacto) {
         super(rut, nombre, num_doc, edad, contacto);
-        this.categorizacionPaciente = controlador.getResultadoCategoria();
+        this.categorizacionPaciente = categorizacionPaciente;
         this.recetaPaciente = recetaPaciente;
     }
     

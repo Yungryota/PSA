@@ -95,11 +95,6 @@ public class Controlador {
         Paciente paciente = new Paciente(this.resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
         System.out.println(paciente);
         
-        System.out.println(getResultadoCategoria());
-        return this.resultadoCategoria;
-    }
-    
-    public String getResultadoCategoria(){
         return this.resultadoCategoria;
     }
     
