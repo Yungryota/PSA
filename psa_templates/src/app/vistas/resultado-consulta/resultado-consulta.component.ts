@@ -37,7 +37,7 @@ export class ResultadoConsultaComponent implements OnInit{
   }
 
   validarDatos(){
-    if (this.categoriaPaciente = '', this.consulta = '', this.rutUsuario = ''){
+    if (this.categoriaPaciente == '', this.consulta == '', this.rutUsuario == ''){
         console.log('No hay datos, validar con sweet alert')
     }
   }
