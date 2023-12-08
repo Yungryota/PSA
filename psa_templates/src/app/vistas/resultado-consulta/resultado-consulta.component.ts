@@ -12,8 +12,11 @@ import * as Notiflix from 'notiflix';
 export class ResultadoConsultaComponent {
   emailUsuario : String = '';
   asunto : String = 'Estimado doctor, se adjuntan síntomas del paciente esperando respuesta con posible diagnóstico y receta médica'
-  sintomasConsulta: String = 'Ta enfelmo';
-  categoriaPaciente: String = 'C4';
+  sintomasConsulta: String = 'Rut usuario: ' + this.mostrarRutUsuario() 
+                             + '\n' + 'Categorización triage;' + this.mostrarCategoriaPaciente() 
+                             + '\n' + 'Síntomas: ' + '\n' + this.mostrarConsulta();
+  categoriaPaciente: String = this.mostrarCategoriaPaciente();
+  temperaturaPaciente: String = '35.5' ;
 
 
   constructor(private router: Router,private service : ServiceService){}
@@ -30,4 +33,24 @@ export class ResultadoConsultaComponent {
     this.router.navigate(['/login-psa']);
   }
 
+  mostrarTemp(){
+    this.service.recibirTemperatura();
+    return ;
+  }
+
+  mostrarConsulta(){
+    return this.service.getConsultaSintomas();
+  }
+
+  mostrarCategoriaPaciente(){
+    return this.service.getCategoriaPaciente();
+  }
+
+  mostrarRutUsuario(){
+    return this.service.getRutUsuario();
+  }
+
+  mostrarTemperatura(){
+    return this.service.getTemperaturaPaciente();
+  }
 }

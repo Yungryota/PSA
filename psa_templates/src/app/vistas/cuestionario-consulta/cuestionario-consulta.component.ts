@@ -17,7 +17,7 @@ export class CuestionarioConsultaComponent {
   constructor(private router: Router, private service: ServiceService) { }
 
   guardarPreguntas(resp: string) {
-    this.respuesta.push(resp);
+    this.respuesta.push(resp + '\n');
     console.log('Funciona tu idea:', resp);
     console.log(this.respuesta)
   }
