@@ -18,18 +18,24 @@
         <div class="main-content">
             <h1 class="centered-content text">Resultados evaluación</h1>
             <h1 class="text"><strong>Rut usuario: {{mostrarRutUsuario()}}</strong></h1>
-            <h1 class="text"><strong>Categoria paciente: {{mostrarCategoriaPaciente()}}</strong></h1>
+            <h1 class="text"><strong>Categoría paciente: {{mostrarCategoriaPaciente()}}</strong></h1>
             <h2 class="text">Temperatura paciente {{mostrarTemperatura()}}</h2>
             <ul>
                 <h2 class="text">Lista de síntomas</h2>
                 <h2 class="text">{{mostrarConsulta()}}</h2>
             </ul>
-            <form>
-                <h2 class="centered-content text">Introduce tu correo electrónico</h2>
+            <form>             
                 <input type="email" [(ngModel)]="emailUsuario"  name="emailUsuario" placeholder="ejemplo@email.cl" class="form-control">
-                <button (click)="guardarMail()" class="button-enviar">Enviar mail</button>
+                <h2 class="centered-content text">Introduce tu correo electrónico</h2>
                 <h1 class="centered-content text">Los resultados serán evaluados y llegarán a su correo:</h1>
-                <h1>{{ emailUsuario }}</h1>
+                <h1>{{ emailMedico }}</h1>
+                <h2 class="centered-content text">Selecciona un médico</h2>
+                <select class="select-styling" [ngModel]="emailUsuario" (ngModelChange)="emailMedico = $event" name="select">
+                    <option value="lu.espejo@duocuc.cl">Dr. Lukas Damaso</option>
+                    <option value="ja.espinam@duocuc.cl">Dra. Javiera Espina</option>
+                    <option value="hu.gonzalez@duocuc.cl">Dr. Hugo Gonzalez</option>
+                </select>   
+                <button (click)="guardarMail()" class="button-enviar">Enviar mail</button>
               </form>
 
             <div class="button-content">

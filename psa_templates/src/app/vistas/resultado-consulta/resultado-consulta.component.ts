@@ -11,10 +11,12 @@ import * as Notiflix from 'notiflix';
 })
 export class ResultadoConsultaComponent {
   emailUsuario : String = '';
+  emailMedico : String = '';
   asunto : String = 'Estimado doctor, se adjuntan síntomas del paciente esperando respuesta con posible diagnóstico y receta médica'
   sintomasConsulta: String = 'Rut usuario: ' + this.mostrarRutUsuario() 
                              + '\n' + 'Categorización triage;' + this.mostrarCategoriaPaciente() 
-                             + '\n' + 'Síntomas: ' + '\n' + this.mostrarConsulta();
+                             + '\n' + 'Síntomas: ' + '\n' + this.mostrarConsulta()
+                             + '\n' + 'Por favor, enviar repspuesta a consulta a correo: ' + this.emailMedico;
   categoriaPaciente: String = this.mostrarCategoriaPaciente();
   temperaturaPaciente: String = '35.5' ;
 
@@ -23,10 +25,13 @@ export class ResultadoConsultaComponent {
 
   //Funcion crea solicitud para enviar por parametros un mail al medico
   guardarMail() {
-    this.service.enviarCorreoSintomasPaciente(this.emailUsuario,this.asunto,this.sintomasConsulta,this.categoriaPaciente)
+    this.service.enviarCorreoSintomasPaciente(this.emailMedico,this.asunto,this.sintomasConsulta,this.categoriaPaciente)
 
-    console.log('Correo guardado:', this.emailUsuario);
+    console.log('Correo guardado:', this.emailMedico);
   }
+
+  
+  
 
   finalizarConsulta(){
     console.log('saliendo...')

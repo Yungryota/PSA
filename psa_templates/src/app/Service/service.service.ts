@@ -54,7 +54,7 @@ export class ServiceService {
 
   //Función que solicita temperatura 
   recibirTemperatura() { //RF12 - Paso 4: Instancia función obtener temperatura
-    this.temperatura = String(this.http.get(`${this.apiUrl}/psa/arduino/temp`));
+    this.temperatura = String(this.http.get(`${this.apiUrl}/psa/arduino/temp`))
     return this.http.get(`${this.apiUrl}/psa/arduino/temp`);
   }
 
