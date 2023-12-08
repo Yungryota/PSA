@@ -13,7 +13,6 @@ public class Temperatura {
         // No es necesario iniciar la lectura aquí, se hará cuando se solicite explícitamente
     }
     
-    // IMPORTANTE: CREAR VALIDACIÓN RANGO TEMPERATURA NORMAL, PASO 7 Y 9 DIAGRAMA RF 12: ESCANEO PACIENTE
     public CompletableFuture<Double> obtenerTemperaturaAsync() {
         CompletableFuture<Double> temperaturaFuture = conexionPuerto.startReading();
         

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import * as Notiflix from 'notiflix';
@@ -9,7 +9,7 @@ import * as Notiflix from 'notiflix';
   templateUrl: './resultado-consulta.component.html',
   styleUrls: ['./resultado-consulta.component.css']
 })
-export class ResultadoConsultaComponent {
+export class ResultadoConsultaComponent implements OnInit{
   emailUsuario : String = '';
   emailMedico : String = '';
   asunto : String = 'Estimado doctor, se adjuntan síntomas del paciente esperando respuesta con posible diagnóstico y receta médica'
@@ -19,9 +19,15 @@ export class ResultadoConsultaComponent {
                              + '\n' + 'Por favor, enviar repspuesta a consulta a correo: ' + this.emailMedico;
   categoriaPaciente: String = this.mostrarCategoriaPaciente();
   temperaturaPaciente: String = '35.5' ;
-
+  consulta : String = this.mostrarConsulta();
+  rutUsuario : String = this.mostrarRutUsuario();
 
   constructor(private router: Router,private service : ServiceService){}
+
+  ngOnInit(): void {
+    this.validarDatos()
+    console.log('Muestra excepcion')
+  }
 
   //Funcion crea solicitud para enviar por parametros un mail al medico
   guardarMail() {
@@ -30,7 +36,11 @@ export class ResultadoConsultaComponent {
     console.log('Correo guardado:', this.emailMedico);
   }
 
-  
+  validarDatos(){
+    if (this.categoriaPaciente = '', this.consulta = '', this.rutUsuario = ''){
+        console.log('No hay datos, validar con sweet alert')
+    }
+  }
   
 
   finalizarConsulta(){
@@ -39,8 +49,7 @@ export class ResultadoConsultaComponent {
   }
 
   mostrarTemp(){
-    this.service.recibirTemperatura();
-    return ;
+    return this.service.recibirTemperatura();
   }
 
   mostrarConsulta(){

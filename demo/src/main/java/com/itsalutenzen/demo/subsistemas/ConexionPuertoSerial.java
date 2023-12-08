@@ -45,8 +45,12 @@ public class ConexionPuertoSerial {
                             String receivedData = puertoSerie.readString(event.getEventValue());
                             if (receivedData != null && !receivedData.isEmpty()) {
                                 temperatura = Double.parseDouble(receivedData.trim());
-                                //System.out.println("Temperatura leída: " + temperatura);
-                                future.complete(temperatura); // Completa el futuro con la temperatura leída
+                                if (temperatura >= 30.00){
+                                    //System.out.println("Temperatura leída: " + temperatura);
+                                    future.complete(temperatura); // Completa el futuro con la temperatura leída
+                                }else{
+                                    temperatura = 0;
+                                }
                             }
                         } catch (SerialPortException | NumberFormatException ex) {
                             future.completeExceptionally(ex); // Completa el futuro con una excepción si ocurre un error

@@ -28,7 +28,7 @@
                 <input type="email" [(ngModel)]="emailUsuario"  name="emailUsuario" placeholder="ejemplo@email.cl" class="form-control">
                 <h2 class="centered-content text">Introduce tu correo electrónico</h2>
                 <h1 class="centered-content text">Los resultados serán evaluados y llegarán a su correo:</h1>
-                <h1>{{ emailMedico }}</h1>
+                <h1>{{ emailUsuario }}</h1>
                 <h2 class="centered-content text">Selecciona un médico</h2>
                 <select class="select-styling" [ngModel]="emailUsuario" (ngModelChange)="emailMedico = $event" name="select">
                     <option value="lu.espejo@duocuc.cl">Dr. Lukas Damaso</option>

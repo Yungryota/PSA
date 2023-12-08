@@ -21,7 +21,11 @@ export class EscaneoTemperaturaComponent {
       (data: any) => {
         console.log(data); 
         //this.obtenerTemperaturaPaciente();// imprime temp
-        this.temperaturaPaciente = data;
+        if (data >= 30.00) { //RF12 - Paso 6: rango temperatura normal
+          this.temperaturaPaciente = data;
+        }else(
+          this.temperaturaPaciente = 'Error al escanerar, por favor, inténtelo de nuevo' //RF12 - Paso 6: rango temperatura anoral
+        )
       },
       (error: any) => {
         console.error(error); 
