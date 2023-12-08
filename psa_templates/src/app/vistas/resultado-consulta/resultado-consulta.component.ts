@@ -48,6 +48,11 @@ export class ResultadoConsultaComponent implements OnInit{
     this.router.navigate(['/login-psa']);
   }
 
+  reservaCitaMedica(){
+    console.log('saliendo...')
+    this.router.navigate(['/reservar-cita']);
+  }
+
   mostrarTemp(){
     return this.service.recibirTemperatura();
   }

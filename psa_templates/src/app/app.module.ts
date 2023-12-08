@@ -16,6 +16,7 @@ import { EscaneoTemperaturaComponent } from './vistas/escaneo-temperatura/escane
 import { CuestionarioConsultaComponent } from './vistas/cuestionario-consulta/cuestionario-consulta.component';
 import { ResultadoConsultaComponent } from './vistas/resultado-consulta/resultado-consulta.component';
 import { ReservaCitaMedicaComponent } from './vistas/reserva-cita-medica/reserva-cita-medica.component';
+import { ReservarCitaMedicaComponent } from './vistas/reservar-cita-medica/reservar-cita-medica.component';
 
 
 
@@ -29,7 +30,8 @@ import { ReservaCitaMedicaComponent } from './vistas/reserva-cita-medica/reserva
     EscaneoTemperaturaComponent,
     CuestionarioConsultaComponent,
     ResultadoConsultaComponent,
-    ReservaCitaMedicaComponent
+    ReservaCitaMedicaComponent,
+    ReservarCitaMedicaComponent
   ],
   imports: [
     BrowserModule,
