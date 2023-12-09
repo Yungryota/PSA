@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.CommandLineRunner;
-
 */
 
 import com.itsalutenzen.demo.clases.Temperatura;

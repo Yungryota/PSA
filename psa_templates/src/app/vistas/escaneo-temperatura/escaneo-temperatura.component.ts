@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
   templateUrl: './escaneo-temperatura.component.html',
   styleUrls: ['./escaneo-temperatura.component.css']
 })
-export class EscaneoTemperaturaComponent {
+export class EscaneoTemperaturaComponent implements OnInit{
   temperaturaPaciente: string = "";
 
 
   constructor(private service: ServiceService, private router: Router){}
+  ngOnInit(): void {
+    console.log('aca el modal con la foto');
+  }
 
   //Función que recibe la temperatura desde spring
   escanearTemperatura() { //RF12 - Paso 3: Crea  solicitud
