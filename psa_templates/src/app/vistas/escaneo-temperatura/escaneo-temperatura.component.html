@@ -1,19 +1,21 @@
 <div class="main-content"> <!-- RF12 - Paso 1: Despliega vista escaneo paciente -->
-    <div class="sidebar">
-      <div class="cont-logo">
-        <img src="assets/img/psaLogo.png" alt="">
-      </div>
+  <div class="sidebar">
+    <div class="cont-logo">
+      <img src="assets/img/psaLogo.png" alt="">
     </div>
+  </div>
 
-    <div class="temperatura-container">
-        <h1 class="text">Presione el botón para comenzar el escaneo</h1>
-        <button (click)="escanearTemperatura()">Comenzar</button><!-- RF12 - Paso 2: Pulsa comenzar -->
-        <h1 class="text">Su temperatura  es: {{temperaturaPaciente}}</h1><!-- RF12 - Paso 10: Devuelve temperatura -->
-        <button (click)="enviarTemperatura()">Continuar</button>
+  <div class="temperatura-container">
+    <h1 class="text">Presione el botón para comenzar el escaneo de temperatura</h1>
+    <button (click)="escanearTemperatura()">Comenzar</button><!-- RF12 - Paso 2: Pulsa comenzar -->
+    <h1 class="text">Su temperatura es: {{temperaturaPaciente}}</h1><!-- RF12 - Paso 10: Devuelve temperatura -->
+    <button (click)="enviarTemperatura()">Continuar</button>
+    <br>
+    <h1 class="text">Ejemplo de toma de tempertarua</h1>
+    <img src="assets/img/EjemTem.png" alt="" class="img-tem">
+  </div>
 
-    </div>
 
-    
 
 </div>
 <!-- Footer -->

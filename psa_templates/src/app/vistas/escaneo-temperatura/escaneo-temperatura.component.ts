@@ -15,6 +15,7 @@ export class EscaneoTemperaturaComponent implements OnInit{
 
   constructor(private service: ServiceService, private router: Router){}
   ngOnInit(): void {
+    
     console.log('aca el modal con la foto');
   }
 

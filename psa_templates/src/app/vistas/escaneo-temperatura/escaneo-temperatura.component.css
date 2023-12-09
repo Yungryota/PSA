@@ -28,9 +28,10 @@ body{
 }
 
 .temperatura-container{
-    margin-left: 10%;
+    margin-left: 50%;
     color: #000;
-    margin: 30px;
+    margin: 40px;
+    
 }
 .text{
     color: #000;
@@ -49,4 +50,18 @@ button {
     margin-left: 450px;
     border-radius: 15px;
     font-size: 30px;
+   
+}
+
+button:hover {
+    background-color: #70a7ff; 
+    color: #000;
+}
+
+.img-tem{
+    width: 50%;
+    height: 50%; 
+    margin-left: 20%;
+    border-radius: 100%;
+    
 }
