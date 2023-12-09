@@ -138,7 +138,7 @@ export class CategorizacionPacienteComponent {
       this.categoriaPaciente = 'C2';
       this.router.navigate(["/login-psa"])
       console.log('categoria: ', this.categoriaPaciente)
-     
+
     } else if (this.nivelPrioridad == 3) {
       Swal.fire({
         icon: 'success',
@@ -155,9 +155,13 @@ export class CategorizacionPacienteComponent {
       Swal.fire({
         icon: 'success',
         title: 'Usted es C4',
-        text: 'Presione OK, para continuar con la encuesta.',
+        text: 'Ejemplo de toma de temperatura, presione OK, para continuar con la encuesta,',
+        imageUrl: "https://media.discordapp.net/attachments/1139632235218223154/1182796270176309288/image.png?ex=6585ffde&is=65738ade&hm=6e02e240c7582e2f3544f2d5f02f0f3b91eee0aedff9482c156fbf427e66ecbf&=&format=webp&quality=lossless&width=1089&height=662",
+        imageWidth: 400,
+        imageHeight: 250,
         footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
-      })
+      });
+      
       this.categoriaPaciente = 'C4';
       this.router.navigate(["/escaneo-temperatura"])
       console.log('categoria: ', this.categoriaPaciente)
@@ -167,9 +171,13 @@ export class CategorizacionPacienteComponent {
       Swal.fire({
         icon: 'success',
         title: 'Usted es C5',
-        text: 'Presione OK, para continuar con la encuesta.',
+        text: 'Ejemplo de toma de temperatura, presione OK, para continuar con la encuesta,',
+        imageUrl: "https://media.discordapp.net/attachments/1139632235218223154/1182796270176309288/image.png?ex=6585ffde&is=65738ade&hm=6e02e240c7582e2f3544f2d5f02f0f3b91eee0aedff9482c156fbf427e66ecbf&=&format=webp&quality=lossless&width=1089&height=662",
+        imageWidth: 400,
+        imageHeight: 250,
         footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
-      })
+      });
+
       this.categoriaPaciente = 'C5';
       this.router.navigate(["/escaneo-temperatura"])
       console.log('categoria: ', this.categoriaPaciente)
