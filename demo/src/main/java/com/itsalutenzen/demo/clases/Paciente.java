@@ -22,7 +22,7 @@ public class Paciente extends Usuario{
                 ", rut='" + getRut() + '\'' +
                 ", nombre='" + getNombre() + '\'' +
                 ", num_doc=" + getNum_doc() +
-                ", edad=" + getEdad() +
+//                ", edad=" + getEdad() +
                 ", contacto='" + getContacto() + '\'' +
                 '}';
     }

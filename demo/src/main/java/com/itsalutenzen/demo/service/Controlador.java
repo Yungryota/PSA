@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.itsalutenzen.demo.clases.Usuario;
 import com.itsalutenzen.demo.clases.Consulta;
+import com.itsalutenzen.demo.clases.FichaMedica;
 import com.itsalutenzen.demo.clases.Resenia;
 import com.itsalutenzen.demo.clases.Temperatura;
 import com.itsalutenzen.demo.clases.Paciente;
@@ -47,7 +48,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controlador {
     public String resultadoCategoria;
- 
+    public Paciente paciente;
+    public Consulta consulta;
+    public Usuario usuario;
     @GetMapping("rut/{rut}") //RUTA http://localhost:8080/psa/{rut} /LLAMA USUARIO Y EJECUTA LA FUNCION DE VALIDAR INICIO DE 
     //SESIÓN ATRAVEZ DEL RUT
     public Usuario getAuth(@PathVariable String rut){
@@ -59,7 +62,9 @@ public class Controlador {
         // Maneja el resultado de la validación según lo que retorne la función
         if (resultadoValidacion.equals("Error")) {
             System.out.println("RUT inválido");
+            this.usuario = usuario.obtenerRutUsuario(rut);
             return usuario.obtenerRutUsuario(rut);
+            
         } else {
             System.out.println("El RUT es válido, nombre encontrado: " + resultadoValidacion);
             return resultadoValidacion;
@@ -81,9 +86,19 @@ public class Controlador {
 
         Resenia resenia = new Resenia("muy bueno", 1);
         Consulta consulta = new Consulta("completada", registroRespuestas, "", resenia);
+        this.consulta = consulta;
         System.out.println(resenia + "\n" + consulta + "\n" + respuesta);
 
         return ResponseEntity.ok(consulta);
+    }
+    
+        @GetMapping("/ficha/{ficha}")
+    public ResponseEntity<FichaMedica> generarFicha(@PathVariable String ficha) {
+            System.out.println(this.consulta);
+            System.out.println(this.paciente);
+        
+        FichaMedica fm = new FichaMedica();
+        return ResponseEntity.ok(fm);
     }
 
 
@@ -94,7 +109,7 @@ public class Controlador {
         
         Paciente paciente = new Paciente(this.resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
         System.out.println(paciente);
-        
+        this.paciente = paciente;
         return this.resultadoCategoria;
     }
     
