@@ -31,20 +31,30 @@ export class CuestionarioConsultaComponent {
   guardarConsulta() { //R10 - paso 3: guarda datos consulta
 
     //sweetalert carga
-    
-  
-    
-    console.log('Respuestas paciente: ',this.respuesta)//R10 - paso 6: Registro evento por consola
+
+
+
+    console.log('Respuestas paciente: ', this.respuesta)//R10 - paso 6: Registro evento por consola
     Swal.fire({
+      title: "Cargando, Por favor espere un momento",
+      
       didOpen: () => {
         Swal.showLoading();
+
+        setTimeout(() => {
+          // Cierra la alerta después de 2500 milisegundos (2.5 segundos)
+          Swal.close();
+        }, 2500);
       },
-      title: "Cargando, Por favor espere un momento",
-      timer: 2500,
+      willClose: () => {
+        Swal.hideLoading();
+      },
       timerProgressBar: true,
     });
 
-    
+
+
+
 
     this.enviarRespuestas = this.respuesta.toString()
     this.service.enviarConsultaPaciente(this.enviarRespuestas).subscribe(

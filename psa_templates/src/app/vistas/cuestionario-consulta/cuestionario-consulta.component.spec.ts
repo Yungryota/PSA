@@ -5,7 +5,7 @@ import { CuestionarioConsultaComponent } from './cuestionario-consulta.component
 describe('CuestionarioConsultaComponent', () => {
   let component: CuestionarioConsultaComponent;
   let fixture: ComponentFixture<CuestionarioConsultaComponent>;
-  let timerInterval;
+  
   
   beforeEach(() => {
     TestBed.configureTestingModule({

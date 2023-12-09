@@ -1,28 +1,28 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import * as Notiflix from 'notiflix';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-resultado-consulta',
   templateUrl: './resultado-consulta.component.html',
   styleUrls: ['./resultado-consulta.component.css']
 })
-export class ResultadoConsultaComponent implements OnInit{
-  emailUsuario : String = '';
-  emailMedico : String = '';
-  asunto : String = 'Estimado doctor, se adjuntan síntomas del paciente esperando respuesta con posible diagnóstico y receta médica'
-  sintomasConsulta: String = 'Rut usuario: ' + this.mostrarRutUsuario() 
-                             + '\n' + 'Categorización triage;' + this.mostrarCategoriaPaciente() 
-                             + '\n' + 'Síntomas: ' + '\n' + this.mostrarConsulta()
-                             + '\n' + 'Por favor, enviar repspuesta a consulta a correo: ' + this.emailMedico;
+export class ResultadoConsultaComponent implements OnInit {
+  emailUsuario: String = '';
+  emailMedico: String = '';
+  asunto: String = 'Estimado doctor, se adjuntan síntomas del paciente esperando respuesta con posible diagnóstico y receta médica'
+  sintomasConsulta: String = 'Rut usuario: ' + this.mostrarRutUsuario()
+    + '\n' + 'Categorización triage;' + this.mostrarCategoriaPaciente()
+    + '\n' + 'Síntomas: ' + '\n' + this.mostrarConsulta()
+    + '\n' + 'Por favor, enviar repspuesta a consulta a correo: ' + this.emailMedico;
   categoriaPaciente: String = this.mostrarCategoriaPaciente();
-  temperaturaPaciente: String = '35.5' ;
-  consulta : String = this.mostrarConsulta();
-  rutUsuario : String = this.mostrarRutUsuario();
+  temperaturaPaciente: String = '35.5';
+  consulta: String = this.mostrarConsulta();
+  rutUsuario: String = this.mostrarRutUsuario();
 
-  constructor(private router: Router,private service : ServiceService){}
+  constructor(private router: Router, private service: ServiceService) { }
 
   ngOnInit(): void {
     this.validarDatos()
@@ -31,45 +31,53 @@ export class ResultadoConsultaComponent implements OnInit{
 
   //Funcion crea solicitud para enviar por parametros un mail al medico
   guardarMail() {
-    this.service.enviarCorreoSintomasPaciente(this.emailMedico,this.asunto,this.sintomasConsulta,this.categoriaPaciente)
+    this.service.enviarCorreoSintomasPaciente(this.emailMedico, this.asunto, this.sintomasConsulta, this.categoriaPaciente)
 
     console.log('Correo guardado:', this.emailMedico);
   }
 
-  validarDatos(){
-    if (this.categoriaPaciente == '', this.consulta == '', this.rutUsuario == ''){
-        console.log('No hay datos, validar con sweet alert')
+  validarDatos() {
+    if (this.categoriaPaciente == '', this.consulta == '', this.rutUsuario == '') {
+      this.router.navigate(['/categorizacion-paciente']);
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No se han econtrado datos",
+        footer: '<span class="rojo">Redirigiendo...</span>'
+        
+      });
     }
   }
-  
 
-  finalizarConsulta(){
+
+  finalizarConsulta() {
     console.log('saliendo...')
     this.router.navigate(['/login-psa']);
   }
 
-  reservaCitaMedica(){
+  reservaCitaMedica() {
     console.log('saliendo...')
     this.router.navigate(['/reservar-cita']);
   }
 
-  mostrarTemp(){
+  mostrarTemp() {
     return this.service.recibirTemperatura();
   }
 
-  mostrarConsulta(){
+  mostrarConsulta() {
     return this.service.getConsultaSintomas();
   }
 
-  mostrarCategoriaPaciente(){
+  mostrarCategoriaPaciente() {
     return this.service.getCategoriaPaciente();
   }
 
-  mostrarRutUsuario(){
+  mostrarRutUsuario() {
     return this.service.getRutUsuario();
   }
 
-  mostrarTemperatura(){
+  mostrarTemperatura() {
     return this.service.getTemperaturaPaciente();
   }
 }
