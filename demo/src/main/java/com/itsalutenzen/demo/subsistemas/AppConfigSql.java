@@ -18,6 +18,7 @@ import oracle.nosql.driver.ops.PutRequest;
 import oracle.nosql.driver.ops.PutResult;
 import oracle.nosql.driver.ops.QueryIterableResult;
 import oracle.nosql.driver.ops.QueryRequest;
+import oracle.nosql.driver.ops.WriteRequest;
 import oracle.nosql.driver.values.MapValue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -85,8 +86,8 @@ public class AppConfigSql extends AbstractNosqlConfiguration {
                 int edad = res.getInt("edad");
                 int numDoc = res.getInt("num_doc");
                 String contacto = res.getString("contacto");;
-                Usuario paciente = new Usuario(rut, nombre, numDoc, edad, contacto);
-                return paciente;
+                Usuario usuario = new Usuario(rut, nombre, numDoc, edad, contacto);
+                return usuario;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,6 +95,27 @@ public class AppConfigSql extends AbstractNosqlConfiguration {
         }
         return null; // Si no se encuentra ningún nombre o hay un error, retorna null
     }
+    public boolean ejecutarInsercion(NoSQLHandle handle, String sentenciaSQL, Usuario nuevoUsuario) {
+    try {
+        // Crear un objeto de tipo PutRequest para la inserción
+        PutRequest putRequest = new PutRequest()
+                .setValue(MapValue.createMapValue()
+                        .put("rut", nuevoUsuario.getRut())
+                        .put("nombre", nuevoUsuario.getNombre())
+                        .put("edad", nuevoUsuario.getEdad())
+                        .put("num_doc", nuevoUsuario.getNum_doc())
+                        .put("contacto", nuevoUsuario.getContacto()));
+
+        handle.put(putRequest); // Ejecutar la inserción
+
+        return true; // La inserción fue exitosa
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        // Manejar cualquier excepción que pueda ocurrir durante la inserción
+        return false; // La inserción falló
+    }
+}
 
     public void insertRow(MapValue value, String tableName) {
         PutRequest putRequest = new PutRequest()

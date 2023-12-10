@@ -27,14 +27,14 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Paciente{" + "rut=" + rut + ", nombre=" + nombre + ", num_doc=" + num_doc + ", edad=" + edad + ", contacto=" + contacto + '}';
+        return "Usuario{" + "rut=" + rut + ", nombre=" + nombre + ", num_doc=" + num_doc + ", edad=" + edad + ", contacto=" + contacto + '}';
     }
 
     public String getRut() { //DA_RF1 - PASO 6: valida inicio de sesion
         if(rut.length() != 10){
-            return rut;
+            return "Porfavor, ingrese un rut valido...";
         }
-        return "Por favor, ingrese un rut valido";
+        return rut;
     }
 
     public void setRut(String rut) {

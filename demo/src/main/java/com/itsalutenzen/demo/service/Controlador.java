@@ -50,24 +50,23 @@ public class Controlador {
     public Paciente paciente;
     public Consulta consulta;
     public Usuario usuario;
-
+    
+    
     @GetMapping("rut/{rut}") //RUTA http://localhost:8080/psa/{rut} /LLAMA USUARIO Y EJECUTA LA FUNCION DE VALIDAR INICIO DE 
     //SESIÓN ATRAVEZ DEL RUT
-    public Usuario getAuth(@PathVariable String rut) {
-
+    public Usuario getAuth(@PathVariable String rut){
         Usuario usuario = new Usuario(rut, "nombre inicial", 0, 0, "contacto inicial");
-        Usuario resultadoValidacion = usuario.obtenerRutUsuario(rut); // Llama a validarInicioSesion
+        Usuario resultadoValidacion = usuario.obtenerRutUsuario(rut);
 
-        // Maneja el resultado de la validación según lo que retorne la función
-        if (resultadoValidacion.equals("Error")) {
-            System.out.println("RUT inválido");
-            this.usuario = usuario.obtenerRutUsuario(rut);
-            return usuario.obtenerRutUsuario(rut);
-
-        } else {
+        // Verifica si el resultado es diferente de null antes de asignarlo a this.usuario
+        if (resultadoValidacion != null) {
             System.out.println("El RUT es válido, nombre encontrado: " + resultadoValidacion);
-            return resultadoValidacion;
+            this.usuario = resultadoValidacion;
+        } else {
+            System.out.println("RUT inválido");
         }
+
+        return resultadoValidacion; // Devuelve el resultadoValidacion, no usuario.obtenerRutUsuario(rut)
     }
 
     @GetMapping("arduino/temp")
@@ -101,11 +100,18 @@ public class Controlador {
     @GetMapping("categoria/{categoria}")
     public String obtenerCategoriaUsuario(@PathVariable String categoria) {
         this.resultadoCategoria = categoria;
-
-        Paciente paciente = new Paciente(this.resultadoCategoria, "receta", "2144482-9", "lukas", 123123, 20, "98923344");
+        Paciente paciente = new Paciente(this.resultadoCategoria, "receta", this.usuario.rut, this.usuario.nombre, this.usuario.num_doc, this.usuario.edad, "98923344");
         System.out.println(paciente);
         this.paciente = paciente;
         return this.resultadoCategoria;
     }
+    
+    @GetMapping("ficha")
+    public void agregarFicha(){
+        FichaMedica fm = new FichaMedica();
+        fm.generarFichaMedica(paciente, consulta);
+    }
+    
+    
 
 }
