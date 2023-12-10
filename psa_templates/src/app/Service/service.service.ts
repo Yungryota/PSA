@@ -88,6 +88,10 @@ export class ServiceService {
     return this,this.categoriaPaciente;
   }
 
+
+  generarFicha(){
+    return this.http.get(`${this.apiUrl}/psa/ficha`);
+  }
   //servicio envio correo electronico con los sintomas del paciente al medico 
   enviarCorreoSintomasPaciente(emailUsuario : String, asunto : String, sintomasConsulta : String, categoriaPaciente : String){
     Notiflix.Loading.standard('Enviando email')

@@ -33,6 +33,7 @@ public class AppConfigSql extends AbstractNosqlConfiguration {
     private String endpoint = "sa-santiago-1";
     private String service = "cloud";
     private String compartment = "ocid1.tenancy.oc1..aaaaaaaaczpgg2opew4dwibalinhthzqqy5jp4ynfy4pree57xrunp3tjceq";
+    private Usuario res;
 
     @Bean
 
@@ -95,29 +96,29 @@ public class AppConfigSql extends AbstractNosqlConfiguration {
         }
         return null; // Si no se encuentra ningún nombre o hay un error, retorna null
     }
-    public boolean ejecutarInsercion(NoSQLHandle handle, String sentenciaSQL, Usuario nuevoUsuario) {
-    try {
-        // Crear un objeto de tipo PutRequest para la inserción
-        PutRequest putRequest = new PutRequest()
-                .setValue(MapValue.createMapValue()
-                        .put("rut", nuevoUsuario.getRut())
-                        .put("nombre", nuevoUsuario.getNombre())
-                        .put("edad", nuevoUsuario.getEdad())
-                        .put("num_doc", nuevoUsuario.getNum_doc())
-                        .put("contacto", nuevoUsuario.getContacto()));
 
-        handle.put(putRequest); // Ejecutar la inserción
-
-        return true; // La inserción fue exitosa
-
+public int getLastId(NoSQLHandle handle, String sentenciaSQL) {
+    try (QueryRequest queryRequest = new QueryRequest().setStatement(sentenciaSQL);
+         QueryIterableResult results = handle.queryIterable(queryRequest)) {
+        
+        int ultimoIdFicha = 0;
+        for (MapValue res : results) {
+            int fichaId = res.getInt("ficha_id");
+            if (fichaId > ultimoIdFicha) {
+                ultimoIdFicha = fichaId;
+            }
+        }
+        // Incrementa el último ID encontrado en 1 para obtener el siguiente ID
+        return ultimoIdFicha + 1;
     } catch (Exception e) {
         e.printStackTrace();
-        // Manejar cualquier excepción que pueda ocurrir durante la inserción
-        return false; // La inserción falló
     }
+    return 0;
 }
 
-    public void insertRow(MapValue value, String tableName) {
+
+
+    public void insertRow(NoSQLHandle handle, MapValue value, String tableName) {
         PutRequest putRequest = new PutRequest()
                 .setValue(value)
                 .setTableName(tableName);
