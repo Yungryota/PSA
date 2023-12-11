@@ -64,4 +64,15 @@ body{
   .boton-edad:hover {
     background-color: #2980b9;
   }
+
+  .button-enviar{
+    background-color: #3C84FB;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 80%;
+    border-radius: 15px;
+    font-size: 30px;
+}
   

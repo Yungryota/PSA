@@ -88,14 +88,6 @@ public class Controlador {
         return ResponseEntity.ok(consulta);
     }
 
-    @GetMapping("/ficha/{ficha}")
-    public ResponseEntity<FichaMedica> generarFicha(@PathVariable String ficha) {
-        System.out.println(this.consulta);
-        System.out.println(this.paciente);
-
-        FichaMedica fm = new FichaMedica();
-        return ResponseEntity.ok(fm);
-    }
 
     @GetMapping("categoria/{categoria}")
     public String obtenerCategoriaUsuario(@PathVariable String categoria) {
@@ -106,8 +98,9 @@ public class Controlador {
         return this.resultadoCategoria;
     }
     
-    @GetMapping("ficha")
+    @GetMapping("/ficha")
     public void agregarFicha(){
+        System.out.println("esta es la buena");
         FichaMedica fm = new FichaMedica();
         fm.generarFichaMedica(paciente, consulta);
     }

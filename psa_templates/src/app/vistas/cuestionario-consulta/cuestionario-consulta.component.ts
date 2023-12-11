@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -8,13 +8,23 @@ import Swal from 'sweetalert2';
   templateUrl: './cuestionario-consulta.component.html',
   styleUrls: ['./cuestionario-consulta.component.css']
 })
-export class CuestionarioConsultaComponent {
+export class CuestionarioConsultaComponent implements OnInit{
   respuestaPregunta1: string = '';
   respuesta: Array<string> = [];
   enviarRespuestas: String = '';
 
 
   constructor(private router: Router, private service: ServiceService) { }
+  ngOnInit(): void {
+    Swal.fire({
+      icon:"info",
+      imageUrl:"https://media.discordapp.net/attachments/1139632235218223154/1183836133323444275/Sitio_Web_landing_page_diseno_delicado_minimalista_para_joyas_hechas_a_mano_dorado_y_beis_3.png?ex=6589c850&is=65775350&hm=c875241afab3ab7a7ad84c575cca79ff97233e177135a54454e3c9448e4913b9&=&format=webp&quality=lossless&width=881&height=495",
+      imageWidth: 700,
+      imageHeight: 350,
+      footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+    });
+
+  }
 
   guardarPreguntas(resp: string) {
     this.respuesta.push(resp + '\n');

@@ -90,6 +90,7 @@ export class ServiceService {
 
 
   generarFicha(){
+    console.log("HOLA SI PULSO XD")
     return this.http.get(`${this.apiUrl}/psa/ficha`);
   }
   //servicio envio correo electronico con los sintomas del paciente al medico 

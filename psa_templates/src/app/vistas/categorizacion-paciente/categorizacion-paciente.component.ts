@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import Swal from 'sweetalert2';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./categorizacion-paciente.component.css'],
 
 })
-export class CategorizacionPacienteComponent {
+export class CategorizacionPacienteComponent implements OnInit{
   respuestas: { [key: string]: boolean | number } = {
     'Experimenta dolor': false,
     'Signo de hemorragia': false,
@@ -24,6 +24,17 @@ export class CategorizacionPacienteComponent {
   categoriaPaciente: string = ' ';
 
   constructor(private router: Router, private service: ServiceService) { }
+  ngOnInit(): void {
+    Swal.fire({
+      icon:"info",
+      imageUrl:"https://media.discordapp.net/attachments/1139632235218223154/1183834868682068108/Sitio_Web_landing_page_diseno_delicado_minimalista_para_joyas_hechas_a_mano_dorado_y_beis_2.png?ex=6589c723&is=65775223&hm=8c9c34178c3cc48e1aa7774f8a2b3479774fefa37db4858702be826981c896ca&=&format=webp&quality=lossless&width=881&height=495",
+      imageWidth: 1000,
+      imageHeight: 350,
+      footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
+    });
+  
+  }
+
 
 
   evaluaDolorPaciente() {
@@ -161,7 +172,7 @@ export class CategorizacionPacienteComponent {
         imageHeight: 250,
         footer: '<span class="rojo">Es importante que presione OK para continuar.</span>'
       });
-      
+
       this.categoriaPaciente = 'C4';
       this.router.navigate(["/escaneo-temperatura"])
       console.log('categoria: ', this.categoriaPaciente)

@@ -53,8 +53,8 @@ export class ResultadoConsultaComponent implements OnInit {
 
   finalizarConsulta() {
     console.log('saliendo...')
-    this.service.generarFicha();
     this.router.navigate(['/login-psa']);
+    return this.service.generarFicha();
   }
 
   reservaCitaMedica() {
