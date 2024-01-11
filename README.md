@@ -13,8 +13,8 @@ PSA tiene como finalidad ser un proyecto el cual pueda ayudar a reducir los tiem
 EL equipo de trabajo fue conformado por:
 
 [Lukas Espejo] (https://github.com/Yungryota)
-Javiera Espina @javiesp
-Hugo Gonzalez @Svboibg20
+[Javiera Espina] (https://github.com/javiesp)
+[Hugo Gonzalez] (https://github.com/Svboibg20)
 
 
 
