@@ -12,9 +12,9 @@ PSA tiene como finalidad ser un proyecto el cual pueda ayudar a reducir los tiem
 
 EL equipo de trabajo fue conformado por:
 
-Lukas Espejo
+Lukas Espejo @Yungryota
 Javiera Espina
-Hugo Gonzalez
+Hugo Gonzalez @Svboibg20
 
 
 
@@ -34,12 +34,12 @@ A futuro se busca hacer que el servicio pueda determinar recetas medicas por si 
 
 ## Detalles Frontend
 
-El front tuvo muchas modificaciones pero se trermino por escoger realizarlo atravez de angular y hacer llamado a servicios como si de 
+El front tuvo muchas modificaciones pero se termino por escoger realizarlo atravez de angular y hacer llamado a servicios como si de 
 una integración se tratara, Se a utilizado Angular principalmente, para diseño se ocupo Bootstrap
 
 ## Detalles Backend
 
-El codigo principal (Realizado en JAVA) Fue compuesto por el frameworks springboot, el cual determina los puertos con los que se puede comunicar 
+El codigo principal (Realizado en JAVA) Fue compuesto por el framework springboot, el cual determina los puertos con los que se puede comunicar 
 para así no tener problemas entre otros puertos que puedan ser utilizados a futuro, tambien para mantener de manera mas segura la linea donde
 transitan los datos por la red. 
 
