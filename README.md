@@ -1,6 +1,6 @@
 # Bienvenido a la guía sobre PSA
 
-# Contexto:
+# Contexto
 Se realizó una investigación y se determinó que los pacientes de establecimientos CESFAM que estan entre
 las cateogrias 4 y 5 solo suelen ir por resfriados leves o estados de salud no criticos,por lo que vienen
 en busca de una licencia médica o una reteca medica. Al paciente se le realiza una categorización entre
@@ -13,7 +13,7 @@ PSA tiene como finalidad ser un proyecto el cual pueda ayudar a reducir los tiem
 EL equipo de trabajo fue conformado por:
 
 Lukas Espejo @Yungryota
-Javiera Espina
+Javiera Espina @javiesp
 Hugo Gonzalez @Svboibg20
 
 
