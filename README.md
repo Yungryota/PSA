@@ -32,12 +32,12 @@ para recibir su licencia medica.
 
 A futuro se busca hacer que el servicio pueda determinar recetas medicas por si mismo con los datos recopilados del cuestionario realizado
 
-#Detalles Frontend
+## Detalles Frontend
 
 El front tuvo muchas modificaciones pero se trermino por escoger realizarlo atravez de angular y hacer llamado a servicios como si de 
 una integración se tratara, Se a utilizado Angular principalmente, para diseño se ocupo Bootstrap
 
-#Detalles Backend
+## Detalles Backend
 
 El codigo principal (Realizado en JAVA) Fue compuesto por el frameworks springboot, el cual determina los puertos con los que se puede comunicar 
 para así no tener problemas entre otros puertos que puedan ser utilizados a futuro, tambien para mantener de manera mas segura la linea donde
